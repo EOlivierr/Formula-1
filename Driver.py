@@ -116,7 +116,7 @@ scat_df = scat_df.sort_values(by= ['position', 'grid'], ascending = [True, True]
 #fig = st.Figure(scat_df, x="grid", y="position")
 
 px= scat_df['grid']
-py= scat_df['position]
+py= scat_df['position']
 
 fig = ff.create_distplot(px, py)
 
