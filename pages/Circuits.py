@@ -93,7 +93,7 @@ fig = st.bar_chart(m, x='circuit_name', y='count')
 #                   yaxis_title='Rondetijden',
 #                   template = "plotly_dark")
 
-fig.show()
+#fig.show()
 
 
 #snelste rondetijd per circuit
