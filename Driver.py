@@ -104,4 +104,56 @@ fig1.update_layout(title='Aantal punten vd Coureurs per Seizoen',
                    template = "plotly_dark")
 st.plotly_chart(fig1)
 
+#Scatterplot P1 vs pole
+scat_df = merged_df[['raceId', 'year','driver_name', 'constructors_name', 'grid', 'position', 'circuit_name']]
+scat_df = scat_df[scat_df.year == 2021]
+#scat_df = scat_df[scat_df.constructors_name == 'Williams']
+#scat_df = scat_df[scat_df.driver_name == 'Nicholas Latifi']
+scat_df = scat_df[scat_df.position != r'\N']
+scat_df = scat_df.sort_values(by= ['position', 'grid'], ascending = [True, True]).head(500)
+
+alle_drivers= scat_df['driver_name'].unique()
+
+fig = go.Figure()
+
+teller = 0
+buttonlist = [dict(label = "Kies een coureur", method='update', args=[{"visible": [True*len(alle_drivers)]}])]
+
+for i in alle_drivers:
+    df2= scat_df[scat_df['driver_name'] == i]
+    
+    fig.add_trace(go.Scatter(x=df2["grid"], y=df2["position"], mode='markers', name=str(i)))
+    
+    lijst = [False]*len(alle_drivers)
+    lijst[teller] = True
+    teller = teller + 1
+    
+    one_button = dict(label = str(i), method='update', args=[{"visible": lijst}])
+    buttonlist.append(one_button)
+    
+fig.update_layout(
+updatemenus=[
+        dict(
+            buttons=buttonlist,
+            direction="down",
+            pad={"r": 10, "t": 10},
+            showactive=True,
+            x=1.1,
+            xanchor="left",
+            y=1.2,
+            yanchor="top"
+        ),        
+    ]
+)
+
+fig.update_layout(title='Correlatie tussen Qualificatie positie en eindpositie',
+                   xaxis_title='Qualificatie positie',
+                   yaxis_title='Eindpositie',
+                   template = "plotly_dark")
+
+fig.update_yaxes(type='linear')
+
+
+
+
 
