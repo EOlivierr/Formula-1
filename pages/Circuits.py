@@ -223,6 +223,7 @@ fig2.update_geos(projection_type="orthographic")
 fig2.update_layout(
         title = 'Circuits of Formula 1 across the world (Hover for info)',
         height=500,
+        width=500,
         margin={"r":0,"t":0,"l":0,"b":0}
     )
 
