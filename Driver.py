@@ -105,8 +105,8 @@ nat_df1= nat_df.merge(driversdf, on='driver_name')
 start_date5 = min(nat_df1['year'])
 end_date5 = max(nat_df1['year'])
 max_days5 = end_date5-start_date5
-slider5 = st.slider('Select date', min_value=start_date5 ,max_value=end_date5)
-st.markdown(slider5)
+#slider5 = st.slider('Select date', min_value=start_date5 ,max_value=end_date5)
+#st.markdown(slider5)
 
 driver_country3 = nat_df1.groupby('nationality').driver_name.nunique().reset_index() 
 driver_country3 = driver_country3.rename(columns = {'driver_name': 'driver_counts'})
