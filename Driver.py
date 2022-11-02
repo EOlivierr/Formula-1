@@ -77,6 +77,7 @@ condf= condf.sort_values(by='points_sum', ascending=False)
 
 #Driver plots
 
+#Nationality plot
 driver_country = driversdf.groupby('nationality').driver_name.nunique().reset_index() 
 driver_country = driver_country.rename(columns = {'driver_name': 'driver_counts'})
 driver_country1 = driver_country[driver_country.driver_counts >= 30].sort_values('driver_counts' ,ascending = False )
@@ -86,17 +87,20 @@ labels = driver_country1['nationality']
 values = driver_country1['driver_counts']
 
 fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.3, pull=[0, 0, 0, 0, 0, 0, 0.2], hoverinfo='label+value')])
-
 fig.update_layout(title='Verdeling van nationaliteit per seizoen', template = "plotly_dark")
+st.plotly_chart(fig)
 
+#Punten van de driver plot
+drivers = driver_analysis_df[['year','driver_name', 'points_sum']]
+drivers = drivers.sort_values(by='points_sum', ascending=False)
+drivers1 = drivers[drivers['year']==2021]
+
+fig = px.bar(drivers1, y='points_sum', x='driver_name', text_auto='.2s')
+
+fig.update_layout(title='Aantal punten vd Coureurs per Seizoen',
+                   xaxis_title='Team',
+                   yaxis_title='Punten',
+                   template = "plotly_dark")
 st.plotly_chart(fig)
 
 
-
-
-
-
-
-
-with st.sidebar:
-    st.text('hoi')
