@@ -211,6 +211,7 @@ st.plotly_chart(fig1)
 #circuits op de kaart 
 
 loc_df = merged_df[['circuit_name', 'year', 'country','lat', 'lng']]
+
 start_date = min(loc_df['year'])
 end_date = max(loc_df['year'])
 max_days = end_date-start_date
@@ -218,7 +219,6 @@ max_days = end_date-start_date
 slider1 = st.slider('Select date', min_value=start_date, value=(start_date,end_date) ,max_value=end_date)
 
 loc_df1 = loc_df[loc_df['year']== slider1]
-
 
 loc_df1['text']= loc_df1['circuit_name'] + ', ' + 'Country: ' + loc_df1['country'].astype(str)
 
