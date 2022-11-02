@@ -204,6 +204,8 @@ fig1.update_layout(title='Snelste pitstoptijden per Circuit per jaar',
                    yaxis_title='Pitstoptijden',
                    template = "plotly_dark")
 
+st.plotly_chart(fig1)
+
 #circuits op de kaart 
 circuitsdf['text'] = circuitsdf['circuit_name'] + ', ' + 'Country: ' + circuitsdf['country'].astype(str)
 
