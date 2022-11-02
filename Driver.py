@@ -113,15 +113,17 @@ scat_df = scat_df[scat_df.year == 2021]
 scat_df = scat_df[scat_df.position != r'\N']
 scat_df = scat_df.sort_values(by= ['position', 'grid'], ascending = [True, True]).head(500)
 
-fig2 = ff.create_distplot(scat_df["grid"], scat_df["position"])
+with st.echo(code_location='below'):
+    import plotly.express as px
 
-st.plotly_chart(fig2, use_container_width=True)
+    fig = px.scatter(scat_df, x="grid", y="position"),
+    )
+    fig.update_layout(title='Correlatie tussen Qualificatie positie en eindpositie',
+                   xaxis_title='Qualificatie positie',
+                   yaxis_title='Eindpositie',
+                   template = "plotly_dark"),
+    )
 
-#fig.update_layout(title='Correlatie tussen Qualificatie positie en eindpositie',
-                   #xaxis_title='Qualificatie positie',
-                   #yaxis_title='Eindpositie',
-                   #template = "plotly_dark")
+    st.write(fig)
 
-#fig.update_yaxes(type='linear')
 
-#fig.show()
