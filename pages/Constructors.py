@@ -91,7 +91,7 @@ condf1= condf1.sort_values(by='points_sum', ascending=False)
 fig = st.bar_chart(condf1, y='points_sum', x='constructors_name_')
 
 #regplot voor een constructor
-st.write("Regressie lijn Ferrari")
+
 condf2 = condf1[condf1.constructors_name_ == 'Ferrari']
 condf2 = condf2.drop(1085)
 condf2.sort_values(by='year_', ascending=True)
@@ -104,6 +104,7 @@ fig = px.scatter(x=condf2["year_"],
                  trendline_color_override="black",)
 
 fig.update_layout(
+       title='Regressie lijn Ferrari",
        xaxis_title="Seizoen",
        yaxis_title="Aantal punten")
 st.plotly_chart(fig)
