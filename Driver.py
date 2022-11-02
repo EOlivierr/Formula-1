@@ -102,7 +102,12 @@ st.plotly_chart(fig3)
 nat_df= driver_analysis_df[['year','driver_name', 'points_sum']]
 nat_df1= nat_df.merge(driversdf, on='driver_name')
 
-st.dataframe(nat_df1)
+driver_country3 = nat_df1.groupby('nationality').driver_name.nunique().reset_index() 
+driver_country3 = driver_country3.rename(columns = {'driver_name': 'driver_counts'})
+driver_country4 = driver_country3[driver_country3.driver_counts >= 30].sort_values('driver_counts' ,ascending = False )
+driver_country4.loc[len(driver_country3.index)] = ['Others', (driver_country3.driver_counts.sum() - driver_country4.driver_counts.sum())]
+
+st.dataframe(driver_country4)
 
 
 
