@@ -94,7 +94,7 @@ st.plotly_chart(fig)
 
 #Punten van de driver plot
 drivers = driver_analysis_df[['year','driver_name', 'points_sum']]
-drivers = drivers.sort_values(by='points_sum', ascending=False)
+#drivers = drivers.sort_values(by='points_sum', ascending=False)
 drivers1 = drivers[drivers['year']==2021]
 
 fig1 = st.bar_chart(drivers1, y='points_sum', x='driver_name')
