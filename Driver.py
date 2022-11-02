@@ -106,24 +106,27 @@ driver_country3 = nat_df1.groupby('nationality').driver_name.nunique().reset_ind
 driver_country3 = driver_country3.rename(columns = {'driver_name': 'driver_counts'})
 driver_country4 = driver_country3[driver_country3.driver_counts >= 30].sort_values('driver_counts' ,ascending = False )
 driver_country4.loc[len(driver_country3.index)] = ['Others', (driver_country3.driver_counts.sum() - driver_country4.driver_counts.sum())]
-#st.dataframe(driver_country4)
+st.dataframe(driver_country4)
 
 start_date5 = min(driver_country4['year'])
-end_date5 = max(driver_country4['year'])
-max_days5 = end_date5-start_date5
-slider5 = st.slider('Select date', min_value=start_date5 ,max_value=end_date5)
-st.markdown(slider5)
+#end_date5 = max(driver_country4['year'])
+#max_days5 = end_date5-start_date5
+#slider5 = st.slider('Select date', min_value=start_date5 ,max_value=end_date5)
+#st.markdown(slider5)
 
-driver_country4 = driver_country4[driver_country4['year']==slider5]
+#driver_country4 = driver_country4[driver_country4['year']==slider5]
 
-labels2 = driver_country4['nationality']
-values2 = driver_country4['driver_counts']
+#labels2 = driver_country4['nationality']
+#values2 = driver_country4['driver_counts']
 
-fig4 = go.Figure(data=[go.Pie(labels=labels2, values=values2, hole=.3, pull=[0, 0, 0, 0, 0, 0, 0.2], hoverinfo='label+value')])
+#fig4 = go.Figure(data=[go.Pie(labels=labels2, values=values2, hole=.3, pull=[0, 0, 0, 0, 0, 0, 0.2], hoverinfo='label+value')])
 
-fig4.update_layout(title='Verdeling van nationaliteit per seizoen', template = "plotly_dark")
+#fig4.update_layout(title='Verdeling van nationaliteit per seizoen', template = "plotly_dark")
 
-st.plotly_chart(fig3)
+#st.plotly_chart(fig3)
+
+
+
 
 
 
