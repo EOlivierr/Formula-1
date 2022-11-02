@@ -8,6 +8,4 @@ import plotly.graph_objects as go
 import streamlit as st
 
 with st.sidebar:
-    st.[element_name]
-
-st.text('hoi')
+    st.text('hoi')
