@@ -97,7 +97,7 @@ condf2 = condf2.drop(1085)
 condf1.sort_values(by='year_', ascending=True)
 
 sns.regplot(data = condf2, x="year_", y='points_sum', ci=None)
-#st.pyplot(fig2)
+st.pyplot()
 
 
 
