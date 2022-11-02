@@ -9,6 +9,8 @@ import streamlit as st
 import plotly.figure_factory as ff
 st.set_page_config(layout="wide")
 
+col1, col2 = st.columns(2)
+
 circuits= pd.read_csv('circuits.csv')
 constructor_results= pd.read_csv('constructor_results.csv')
 constructor_standings= pd.read_csv('constructor_standings.csv')
@@ -82,16 +84,15 @@ nat_df1= nat_df.merge(driversdf, on='driver_name')
 start_date5 = min(nat_df1['year'])
 end_date5 = max(nat_df1['year'])
 max_days5 = end_date5-start_date5
-slider5 = st.slider('Selecteer de datum', min_value=start_date5 ,max_value=end_date5)
-st.markdown(slider5)
+
+with col1:
+       slider5 = st.slider('Selecteer de datum', min_value=start_date5 ,max_value=end_date5)
+
 
 nat_df1 = nat_df1[nat_df1['year']==slider5]
 
 driver_country3 = nat_df1.groupby('nationality').driver_name.nunique().reset_index() 
 driver_country3 = driver_country3.rename(columns = {'driver_name': 'driver_counts'})
-#driver_country4 = driver_country3[driver_country3.driver_counts >= 30].sort_values('driver_counts' ,ascending = False )
-#driver_country4.loc[len(driver_country3.index)] = ['Others', (driver_country3.driver_counts.sum() - driver_country4.driver_counts.sum())]
-#st.dataframe(driver_country3)
 
 labels2 = driver_country3['nationality']
 values2 = driver_country3['driver_counts']
@@ -100,7 +101,8 @@ fig4 = go.Figure(data=[go.Pie(labels=labels2, values=values2, hole=.3, pull=[0, 
 
 fig4.update_layout(title='Verdeling van nationaliteit per seizoen', template = "plotly_dark")
 
-st.plotly_chart(fig4)
+with col2:
+       st.plotly_chart(fig4)
 
 condf= con_analysis_df[['year_','constructors_name_', 'points_sum']]
 condf= condf.sort_values(by='points_sum', ascending=False)
@@ -111,14 +113,17 @@ drivers = driver_analysis_df[['year','driver_name', 'points_sum']]
 start_date = min(drivers['year'])
 end_date = max(drivers['year'])
 max_days = end_date-start_date
-slider = st.slider('Select date', min_value=start_date ,max_value=end_date)
-st.markdown(slider)
+
+with col1:
+       slider = st.slider('Select date', min_value=start_date ,max_value=end_date)
+
 
 drivers = drivers[drivers['year']==slider]
 drivers = drivers.sort_values(by='points_sum')
 
 #Punten van de driver plot
-fig1 = st.bar_chart(drivers, y='points_sum', x=('driver_name'))
+with col2:
+       fig1 = st.bar_chart(drivers, y='points_sum', x=('driver_name'))
 
 #Correlatie tussen p1 en pole
 scat_df = merged_df[['raceId', 'year','driver_name', 'constructors_name', 'grid', 'position', 'circuit_name']]
@@ -171,4 +176,5 @@ fig.update_layout(title='Correlatie tussen Qualificatie positie en eindpositie',
 
 fig.update_yaxes(type='linear')
 
-st.plotly_chart(fig)
+with col2:
+       st.plotly_chart(fig)
