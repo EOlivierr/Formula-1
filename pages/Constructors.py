@@ -109,6 +109,8 @@ fig.update_layout(
 st.plotly_chart(fig)
 
 #dropdown menu punten per seizoen per team
+alle_teams= condf1['constructors_name_'].unique()
+
 fig = go.Figure()
 
 teller = 0
