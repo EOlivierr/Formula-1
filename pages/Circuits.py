@@ -88,10 +88,10 @@ m =  m.rename(columns ={'circuit_name': 'count', 'index': 'circuit_name'})
 import plotly.express as px
 fig = st.bar_chart(m, x='circuit_name', y='count')
 
-fig.update_layout(title='Top 20 meest voorkomende circuits in Formule 1',
-                   xaxis_title='Circuits',
-                   yaxis_title='Rondetijden',
-                   template = "plotly_dark")
+#fig.update_layout(title='Top 20 meest voorkomende circuits in Formule 1',
+#                   xaxis_title='Circuits',
+#                   yaxis_title='Rondetijden',
+#                   template = "plotly_dark")
 
 fig.show()
 
