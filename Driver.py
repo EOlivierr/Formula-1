@@ -103,4 +103,4 @@ fig1 = st.bar_chart(drivers1, y='points_sum', x=('driver_name'))
                    #xaxis_title='Team',
                    #yaxis_title='Punten',
                    #template = "plotly_dark")
-st.plotly_chart(fig1)
+#st.plotly_chart(fig1)
