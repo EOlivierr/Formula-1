@@ -90,6 +90,8 @@ max_days7 = end_date7-start_date7
 
 with col2:
        slider7 = st.slider('Select date', min_value=start_date7 ,max_value=end_date7)
+       
+condf = condf[condf['year_']==slider7]
 
 fig1 = st.bar_chart(condf, y='points_sum', x='constructors_name_')
 
