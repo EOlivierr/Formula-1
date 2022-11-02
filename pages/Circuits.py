@@ -209,7 +209,7 @@ st.plotly_chart(fig1)
 #circuits op de kaart 
 circuitsdf['text'] = circuitsdf['circuit_name'] + ', ' + 'Country: ' + circuitsdf['country'].astype(str)
 
-fig = go.Figure(data=go.Scattergeo(
+fig2 = go.Figure(data=go.Scattergeo(
         lon = circuitsdf['lng'],
         lat = circuitsdf['lat'],
         text = circuitsdf['text'],
@@ -218,9 +218,9 @@ fig = go.Figure(data=go.Scattergeo(
         
         ))
 
-fig.update_geos(projection_type="orthographic")
+fig2.update_geos(projection_type="orthographic")
 
-fig.update_layout(
+fig2.update_layout(
         #title = 'Circuits of Formula 1 across the world<br>(Hover for info)',
         height=500,
         margin={"r":0,"t":0,"l":0,"b":0},
@@ -228,4 +228,4 @@ fig.update_layout(
     )
 
 
-fig.show()
+st.plotly_chart(fig2)
