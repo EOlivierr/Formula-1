@@ -92,6 +92,8 @@ st.plotly_chart(fig)
 condf= con_analysis_df[['year_','constructors_name_', 'points_sum']]
 condf= condf.sort_values(by='points_sum', ascending=False)
 
+
+drivers = driver_analysis_df[['year','driver_name', 'points_sum']]
 #slider van de driver plot
 start_date = min(drivers['year'])
 end_date = max(drivers['year'])
@@ -101,8 +103,6 @@ slider = st.slider('Select date', min_value=start_date, value=(start_date, start
 drivers = drivers[drivers['year']==slider]
 
 #Punten van de driver plot
-drivers = driver_analysis_df[['year','driver_name', 'points_sum']]
-
 fig1 = st.bar_chart(drivers, y='points_sum', x=('driver_name'))
 
 #fig1.update_layout(title='Aantal punten vd Coureurs per Seizoen',
