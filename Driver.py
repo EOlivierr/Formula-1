@@ -113,12 +113,7 @@ scat_df = scat_df[scat_df.year == 2021]
 scat_df = scat_df[scat_df.position != r'\N']
 scat_df = scat_df.sort_values(by= ['position', 'grid'], ascending = [True, True]).head(500)
 
-#fig = st.Figure(scat_df, x="grid", y="position")
-
-px= scat_df['grid']
-py= scat_df['position']
-
-fig = ff.create_distplot(px, py)
+fig = st.pyplot(scat_df, x="grid", y="position")
 
 #fig.update_layout(title='Correlatie tussen Qualificatie positie en eindpositie',
                    #xaxis_title='Qualificatie positie',
