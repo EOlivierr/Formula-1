@@ -115,7 +115,7 @@ scat_df = scat_df.sort_values(by= ['position', 'grid'], ascending = [True, True]
 
 alle_drivers= scat_df['driver_name'].unique()
 
-with st.echo(code_location='below'):
+
     import plotly.express as px
 
     fig = go.Figure()
