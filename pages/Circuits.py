@@ -216,10 +216,11 @@ loc_df = merged_df[['circuit_name', 'year', 'country','lat', 'lng']]
 start_date = min(loc_df['year'])
 end_date = max(loc_df['year'])
 max_days = end_date-start_date
-slider = st.slider('Select date', min_value=start_date, value=(start_date,end_date) ,max_value=end_date)
+slider = st.slider('Select date', min_value=start_date ,max_value=end_date)
+#value=(start_date,end_date)
 
-loc_df = loc_df[(loc_df.year >= slider[0]) & (loc_df.year <= slider[1])]
-#loc_df = loc_df[loc_df['year']== slider]
+#loc_df = loc_df[(loc_df.year >= slider[0]) & (loc_df.year <= slider[1])]
+loc_df = loc_df[loc_df['year']== slider]
 
 loc_df['text']= loc_df['circuit_name'] + ', ' + 'Country: ' + loc_df['country'].astype(str)
 
