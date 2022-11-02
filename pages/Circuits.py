@@ -248,6 +248,6 @@ with col1:
        st.plotly_chart(fig1)
 
 
-st.altair_chart(fig1 | fig3)
+)
 
 
