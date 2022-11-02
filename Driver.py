@@ -102,7 +102,7 @@ slider = st.slider('Select date', min_value=start_date ,max_value=end_date)
 st.markdown(slider)
 
 drivers = drivers[drivers['year']==slider]
-drivers = groupby('points_sum').count().values_sort(('points_sum'))
+drivers = drivers.sort_values(by='points_sum')
 
 #Punten van de driver plot
 fig1 = st.bar_chart(drivers, y='points_sum', x=('driver_name'))
