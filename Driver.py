@@ -99,10 +99,10 @@ drivers1 = drivers[drivers['year']==2021]
 
 fig1 = st.bar_chart(drivers1, y='points_sum', x='driver_name')
 
-fig1.update_layout(title='Aantal punten vd Coureurs per Seizoen',
-                   xaxis_title='Team',
-                   yaxis_title='Punten',
-                   template = "plotly_dark")
+#fig1.update_layout(title='Aantal punten vd Coureurs per Seizoen',
+                   #xaxis_title='Team',
+                   #yaxis_title='Punten',
+                   #template = "plotly_dark")
 st.plotly_chart(fig1)
 
 #Scatterplot P1 vs pole
