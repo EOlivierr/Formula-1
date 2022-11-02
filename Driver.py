@@ -74,9 +74,6 @@ most_races = most_races.rename(columns ={'raceId': 'total_races'})
 con_analysis_df = merged_df.groupby(['year','constructors_name']).agg({'points': ['sum'],'raceId':['count'],'positionOrder':['mean','std'] }).reset_index()
 con_analysis_df.columns = ['_'.join(col).strip() for col in con_analysis_df.columns.values]
 
-condf= con_analysis_df[['year_','constructors_name_', 'points_sum']].tail(10)
-condf= condf.sort_values(by='points_sum', ascending=False)
-
 #Driver plots
 
 #Nationality plot
@@ -92,12 +89,21 @@ fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.3, pull=[0, 0, 
 fig.update_layout(title='Verdeling van nationaliteit per seizoen', template = "plotly_dark")
 st.plotly_chart(fig)
 
+condf= con_analysis_df[['year_','constructors_name_', 'points_sum']]
+condf= condf.sort_values(by='points_sum', ascending=False)
+
+#slider van de driver plot
+start_date = min(drivers['year'])
+end_date = max(drivers['year'])
+max_days = end_date-start_date
+slider = st.slider('Select date', min_value=start_date, value=(2000) ,max_value=end_date)
+
+drivers = drivers[drivers['year']==slider]
+
 #Punten van de driver plot
 drivers = driver_analysis_df[['year','driver_name', 'points_sum']]
-#drivers = drivers.sort_values(by='points_sum', ascending=False)
-drivers1 = drivers[drivers['year']==2021]
 
-fig1 = st.bar_chart(drivers1, y='points_sum', x=('driver_name'))
+fig1 = st.bar_chart(drivers, y='points_sum', x=('driver_name'))
 
 #fig1.update_layout(title='Aantal punten vd Coureurs per Seizoen',
                    #xaxis_title='Team',
