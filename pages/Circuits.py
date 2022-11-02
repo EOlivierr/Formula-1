@@ -217,6 +217,8 @@ start_date = min(loc_df['year'])
 end_date = max(loc_df['year'])
 max_days = end_date-start_date
 slider = st.slider('Select date', min_value=start_date, value=(start_date,end_date) ,max_value=end_date)
+st.markdown(slider)
+
 
 #loc_df = loc_df[loc_df['year']== slider]
 
@@ -238,7 +240,7 @@ fig2.update_layout(
         width=500,
         margin={"r":0,"t":0,"l":0,"b":0}
     )
-st.plotly_chart(fig2)
+#st.plotly_chart(fig2)
 
 
 
