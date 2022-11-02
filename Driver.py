@@ -78,7 +78,8 @@ con_analysis_df.columns = ['_'.join(col).strip() for col in con_analysis_df.colu
 
 #Nationality plot
 era_df= merged_df[['driver_name', 'driver_nationality']]
-era_df= era_df.merge(driversdf, on='driver_name')
+era_df= era_df.merge(drivers, on='driver_name')
+era_df
 
 start_date1 = min(era_df['year'])
 end_date1 = max(era_df['year'])
