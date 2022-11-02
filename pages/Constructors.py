@@ -99,14 +99,14 @@ with col1:
 
 
 
-
-
 #meest succesvolle constructor
 condf1= con_analysis_df[['year_','constructors_name_', 'points_sum']]
 condf1 = condf1[condf1['points_sum']>= 70]
 condf1= condf1.sort_values(by='points_sum', ascending=False)
 
-       
+fig = px.bar(condf1, y='points_sum', x='constructors_name_',  text_auto='.2s')
+
+  
        
        
        
