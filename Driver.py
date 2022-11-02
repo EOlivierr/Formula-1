@@ -95,7 +95,7 @@ drivers = driver_analysis_df[['year','driver_name', 'points_sum']]
 drivers = drivers.sort_values(by='points_sum', ascending=False)
 drivers1 = drivers[drivers['year']==2021]
 
-fig = px.bar(drivers1, y='points_sum', x='driver_name', text_auto='.2s')
+fig = px.bar(drivers1, y='points_sum', x='driver_name')
 
 fig.update_layout(title='Aantal punten vd Coureurs per Seizoen',
                    xaxis_title='Team',
