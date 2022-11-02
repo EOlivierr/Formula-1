@@ -9,6 +9,8 @@ import streamlit as st
 import plotly.figure_factory as ff
 st.set_page_config(layout="wide")
 
+col1, col2 = st.columns([3, 1])
+
 circuits= pd.read_csv('circuits.csv')
 constructor_results= pd.read_csv('constructor_results.csv')
 constructor_standings= pd.read_csv('constructor_standings.csv')
