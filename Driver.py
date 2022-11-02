@@ -123,10 +123,34 @@ drivers = drivers.sort_values(by='points_sum')
 
 #Punten van de driver plot
 
+
+
+
+
+labels6 = drivers['driver_name']
+values6 = drivers['points_sum']
+
+fig6 = go.Figure(data=[go.Bar(labels=labels6, values=values2)])
+
+fig6.update_layout(title='Verdeling van nationaliteit per seizoen', template = "plotly_dark")
+
+with col1:
+       st.plotly_chart(fig6)
+
+
 with col1:
        fig1 = st.bar_chart(drivers, y='points_sum', x=('driver_name'))
 
-fig1.update_layout(title='Verdeling van nationaliteit per seizoen', template = "plotly_dark")       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
        
 #Correlatie tussen p1 en pole
 scat_df = merged_df[['raceId', 'year','driver_name', 'constructors_name', 'grid', 'position', 'circuit_name']]
