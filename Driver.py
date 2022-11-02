@@ -123,11 +123,11 @@ drivers = drivers.sort_values(by='points_sum')
 
 #Punten van de driver plot
 
-fig1.update_layout(title='Verdeling van nationaliteit per seizoen', template = "plotly_dark")
-
 with col1:
        fig1 = st.bar_chart(drivers, y='points_sum', x=('driver_name'))
 
+fig1.update_layout(title='Verdeling van nationaliteit per seizoen', template = "plotly_dark")       
+       
 #Correlatie tussen p1 en pole
 scat_df = merged_df[['raceId', 'year','driver_name', 'constructors_name', 'grid', 'position', 'circuit_name']]
 scat_df = scat_df[scat_df.year == 2021]
