@@ -106,11 +106,11 @@ drivers = drivers[drivers['year']==slider]
 #Punten van de driver plot
 fig1 = st.bar_chart(drivers, y='points_sum', x=('driver_name'))
 
-#fig1.update_layout(title='Aantal punten vd Coureurs per Seizoen',
+fig1.update_layout(title='Aantal punten vd Coureurs per Seizoen',
                    #xaxis_title='Team',
                    #yaxis_title='Punten',
                    #template = "plotly_dark")
-#st.plotly_chart(fig1)
+st.plotly_chart(fig1)
 
 #Correlatie tussen p1 en pole
 scat_df = merged_df[['raceId', 'year','driver_name', 'constructors_name', 'grid', 'position', 'circuit_name']]
