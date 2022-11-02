@@ -108,8 +108,8 @@ era_df= merged_df[['driver_name', 'driver_nationality']]
 #driversdf4 =driversdf3.rename(columns = {'driver_name':'naam', 'year':'jaar'})
 era_df2= era_df.merge(driversdf3, on='driver_name')
 
-st.dataframe(era_df2)
-
+st.dataframe(era_df)
+st.dataframe(driversdf3)
 
 
 
