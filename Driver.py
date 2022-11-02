@@ -155,3 +155,6 @@ fig.update_layout(title='Correlatie tussen Qualificatie positie en eindpositie',
 fig.update_yaxes(type='linear')
 
 st.plotly_chart(fig)
+
+
+slider = cols1.slider('Select date', min_value=start_date, value=(start_date,end_date) ,max_value=end_date, format=format2)
