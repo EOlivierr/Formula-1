@@ -104,7 +104,7 @@ fig = px.scatter(x=condf2["year_"],
                  trendline_color_override="black",)
 
 fig.update_layout(
-       title='Regressie lijn Ferrari",
+       title=('Regressie lijn Ferrari'),
        xaxis_title="Seizoen",
        yaxis_title="Aantal punten")
 st.plotly_chart(fig)
