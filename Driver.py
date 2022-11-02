@@ -104,7 +104,7 @@ condf= con_analysis_df[['year_','constructors_name_', 'points_sum']]
 condf= condf.sort_values(by='points_sum', ascending=False)
 
 
-drivers = driver_analysis_df[['year','driver_name', 'points_sum']]
+#drivers = driver_analysis_df[['year','driver_name', 'points_sum']]
 #slider van de driver plot
 start_date = min(drivers['year'])
 end_date = max(drivers['year'])
