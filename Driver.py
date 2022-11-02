@@ -113,6 +113,8 @@ scat_df = scat_df[scat_df.year == 2021]
 scat_df = scat_df[scat_df.position != r'\N']
 scat_df = scat_df.sort_values(by= ['position', 'grid'], ascending = [True, True]).head(500)
 
+alle_drivers= scat_df['driver_name'].unique()
+
 with st.echo(code_location='below'):
     import plotly.express as px
 
