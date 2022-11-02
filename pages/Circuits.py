@@ -213,6 +213,7 @@ st.plotly_chart(fig1)
 loc_df = merged_df[['circuit_name', 'year', 'country','lat', 'lng']]
 loc_df['text']= loc_df['circuit_name'] + ', ' + 'Country: ' + loc_df['country'].astype(str)
 
+format2 = 'MMM DD'
 start_date = min(loc_df['year'])
 end_date = max(loc_df['year'])
 max_days = end_date-start_date
