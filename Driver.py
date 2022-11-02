@@ -100,9 +100,9 @@ st.plotly_chart(fig3)
 
 #Nationality plot nieuw
 nat_df= driver_analysis_df[['year','driver_name', 'points_sum']]
+nat_df1= nat_df.merge(driversdf, on='driver_name')
 
-
-st.dataframe(nat_df)
+st.dataframe(nat_df1)
 
 
 
