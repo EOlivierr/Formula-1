@@ -99,15 +99,14 @@ fig3.update_layout(title='Verdeling van nationaliteit per seizoen', template = "
 st.plotly_chart(fig3)
 
 #Nationality plot nieuw
-driversdf3 = drivers.copy()
+#driversdf3 = drivers.copy()
 
 era_df= merged_df[['driver_name', 'driver_nationality']]
-era_df.rename(columns= {'driver_name':'name','driver_nationality':'nationality'})
-st.dataframe(era_df)
+era_df =era_df.rename(columns = {'driver_name':'naam', 'driver_nationality':'herkomst'})
+drivers =drivers.rename(columns = {'driver_name':'naam', 'year':'jaar'})
+era_df2= era_df.merge(drivers, on='naam')
 
-#era_df1= era_df.merge(driversdf3, on='driver_name')
-
-
+st.dataframe(era_df2)
 
 
 
