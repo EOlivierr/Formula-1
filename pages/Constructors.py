@@ -98,7 +98,7 @@ condf1.sort_values(by='year_', ascending=True)
 
 fig = px.scatter(condf2, x="year_", y="points_sum", 
                  trendline="ols", trendline_scope="overall", trendline_color_override="black")
-fig.show()
+st.plotly_chart(fig)
 
 
 
