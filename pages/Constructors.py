@@ -91,15 +91,20 @@ condf1= condf1.sort_values(by='points_sum', ascending=False)
 fig = st.bar_chart(condf1, y='points_sum', x='constructors_name_')
 
 #regplot voor een constructor
-fig = go.Figure()
+
 condf2 = condf1[condf1.constructors_name_ == 'Ferrari']
 condf2 = condf2.drop(1085)
 condf2.sort_values(by='year_', ascending=True)
+with st.echo(code_location='below'):
+    import plotly.express as px
 
-fig.add_trace(go.Scatter(x=condf2["year_"], y=condf2["points_sum"],
-                         #trendline="ols", trendline_scope="overall", trendline_color_override="black"
-                        ))
-st.plotly_chart(fig)
+       fig = px.scatter(x=condf2["year_"], y=condf2["points_sum"],trendline="ols", trendline_scope="overall", trendline_color_override="black")
+       st.plotly_chart(fig)
+       fig.update_layout(
+        xaxis_title="Seizoen",
+        yaxis_title="Aantal punten",
+       )
 
+       st.write(fig)
 
 
