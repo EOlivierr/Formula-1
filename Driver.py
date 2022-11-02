@@ -85,7 +85,7 @@ start_date5 = min(nat_df1['year'])
 end_date5 = max(nat_df1['year'])
 max_days5 = end_date5-start_date5
 
-with col1:
+with col2:
        slider5 = st.slider('Selecteer de datum', min_value=start_date5 ,max_value=end_date5)
 
 
@@ -101,7 +101,7 @@ fig4 = go.Figure(data=[go.Pie(labels=labels2, values=values2, hole=.3, pull=[0, 
 
 fig4.update_layout(title='Verdeling van nationaliteit per seizoen', template = "plotly_dark")
 
-with col2:
+with col1:
        st.plotly_chart(fig4)
 
 condf= con_analysis_df[['year_','constructors_name_', 'points_sum']]
@@ -114,7 +114,7 @@ start_date = min(drivers['year'])
 end_date = max(drivers['year'])
 max_days = end_date-start_date
 
-with col1:
+with col2:
        slider = st.slider('Select date', min_value=start_date ,max_value=end_date)
 
 
@@ -122,7 +122,7 @@ drivers = drivers[drivers['year']==slider]
 drivers = drivers.sort_values(by='points_sum')
 
 #Punten van de driver plot
-with col2:
+with col1:
        fig1 = st.bar_chart(drivers, y='points_sum', x=('driver_name'))
 
 #Correlatie tussen p1 en pole
@@ -176,5 +176,5 @@ fig.update_layout(title='Correlatie tussen Qualificatie positie en eindpositie',
 
 fig.update_yaxes(type='linear')
 
-with col2:
+with col1:
        st.plotly_chart(fig)
