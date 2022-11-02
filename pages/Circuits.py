@@ -220,6 +220,8 @@ max_days = end_date-start_date
 
 slider = st.slider('Select date', min_value=start_date, value=(start_date,end_date) ,max_value=end_date)
 
+loc_df = loc_df[loc_df['year']== slider]
+
 fig2 = go.Figure(data=go.Scattergeo(
         lon = loc_df['lng'],
         lat = loc_df['lat'],
