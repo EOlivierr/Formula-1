@@ -248,6 +248,6 @@ with col1:
        st.plotly_chart(fig1)
 
 
-)
+
 
 
