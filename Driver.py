@@ -96,7 +96,7 @@ condf= condf.sort_values(by='points_sum', ascending=False)
 start_date = min(drivers['year'])
 end_date = max(drivers['year'])
 max_days = end_date-start_date
-slider = st.slider('Select date', min_value=start_date, value=(2000) ,max_value=end_date)
+slider = st.slider('Select date', min_value=start_date, value=(start_date, start_date) ,max_value=end_date)
 
 drivers = drivers[drivers['year']==slider]
 
