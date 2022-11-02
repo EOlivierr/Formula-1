@@ -103,12 +103,12 @@ driversdf3 = drivers.copy()
 
 era_df= merged_df[['driver_name', 'driver_nationality']]
 era_df =era_df.rename(columns = {'driver_name':'naam', 'driver_nationality':'herkomst'})
-driversdf3 =driversdf3.rename(columns = {'driver_name':'naam', 'year':'jaar'})
-era_df2= era_df.merge(driversdf3, on='naam')
+driversdf4 =driversdf3.rename(columns = {'driver_name':'naam', 'year':'jaar'})
+#era_df2= era_df.merge(driversdf3, on='naam')
 
-st.dataframe(era_df2)
-
-
+st.dataframe(era_df)
+st.dataframe(driversdf3)
+st.dataframe(driversdf4)
 
 
 
