@@ -7,3 +7,4 @@ sodapy==2.2.0
 xlrd >= 1.0.0
 pandas==1.4.4
 matplotlib==3.5.1
+seaborn==0.11.2
