@@ -99,8 +99,8 @@ drivers1 = drivers[drivers['year']==2021]
 
 fig1 = st.bar_chart(drivers1, y='points_sum', x=('driver_name'))
 
-st.write(fig1)
-st.write(alt.Chart(fig1).mark_bar().encode(
+st.write(drivers1)
+st.write(alt.Chart(drivers1).mark_bar().encode(
     x=alt.X('driver_name', sort=None),
     y='points_sum',
 ))
