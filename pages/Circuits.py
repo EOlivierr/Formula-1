@@ -220,6 +220,7 @@ slider = st.slider('Select date', min_value=start_date, value=(start_date,end_da
 st.markdown(slider[0])
 st.markdown(slider[1])
 
+loc_df = loc_df[(loc_df.year >= slider[0]) & (loc_df.year <= slider[1])]
 #loc_df = loc_df[loc_df['year']== slider]
 
 loc_df['text']= loc_df['circuit_name'] + ', ' + 'Country: ' + loc_df['country'].astype(str)
