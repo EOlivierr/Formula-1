@@ -102,22 +102,15 @@ with col1:
 
 
 #meest succesvolle constructor
-st.write("Meest succesvolle constructeur")
-condf1= con_analysis_df[['year_','constructors_name_', 'points_sum']]
-condf1 = condf1[condf1['points_sum']>= 70]
-#condf1= condf1.sort_values(by='points_sum', ascending=False)
 
-start_date8 = min(condf1['year_'])
-end_date8 = max(condf1['year_'])
-max_days8 = end_date8-start_date8
 
-slider8 = st.slider('Select date', min_value=start_date8 ,max_value=end_date8)
        
-condf1 = condf1[condf1['year_']==slider8]
-
-with col1:
-       fig11 = st.bar_chart(condf1, y='points_sum', x='constructors_name_')
-
+       
+       
+       
+       
+       
+       
 #regplot voor een constructor
 
 condf2 = condf1[condf1.constructors_name_ == 'Ferrari']
