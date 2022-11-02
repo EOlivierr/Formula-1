@@ -94,9 +94,9 @@ fig = st.bar_chart(condf1, y='points_sum', x='constructors_name_')
 fig = go.Figure()
 condf2 = condf1[condf1.constructors_name_ == 'Ferrari']
 condf2 = condf2.drop(1085)
-condf1.sort_values(by='year_', ascending=True)
+condf2.sort_values(by='year_', ascending=True)
 
-fig.add_trace(go.Scatter(condf2, x="year_", y="points_sum",trendline="ols", trendline_scope="overall", trendline_color_override="black"))
+fig.add_trace(go.Scatter(x=condf2["year_"], y=condf2["points_sum"],trendline="ols", trendline_scope="overall", trendline_color_override="black"))
 st.plotly_chart(fig)
 
 
