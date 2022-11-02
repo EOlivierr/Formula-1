@@ -5,5 +5,6 @@ import seaborn as sns
 import plotly.graph_objects as px
 import numpy as np
 import plotly.graph_objects as go
+import streamlit as st
 
 st.text('hoi')
