@@ -104,8 +104,8 @@ condf1= con_analysis_df[['year_','constructors_name_', 'points_sum']]
 condf1 = condf1[condf1['points_sum']>= 70]
 #condf1= condf1.sort_values(by='points_sum', ascending=False)
 
-fig = px.bar(condf1, y='points_sum', x='constructors_name_')
-
+fig9 = px.bar(condf1, y='points_sum', x='constructors_name_')
+ st.plotly_chart(fig9)
   
        
        
