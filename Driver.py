@@ -100,8 +100,8 @@ st.plotly_chart(fig3)
 
 #Nationality plot nieuw
 driversdf3 = drivers.copy()
-#driversdf3['driver_name'] = driversdf3['forename'] + ' ' + driversdf3['surname']
-#driversdf3 = driversdf3.drop(columns =['forename', 'surname'])
+driversdf3['driver_name'] = driversdf3['forename'] + ' ' + driversdf3['surname']
+driversdf3 = driversdf3.drop(columns =['forename', 'surname'])
 
 #era_df= merged_df[['driver_name', 'driver_nationality']]
 #era_df =era_df.rename(columns = {'driver_name':'naam', 'driver_nationality':'herkomst'})
