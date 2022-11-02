@@ -80,11 +80,11 @@ con_analysis_df.columns = ['_'.join(col).strip() for col in con_analysis_df.colu
 era_df= merged_df[['driver_name', 'driver_nationality']]
 era_df= era_df.merge(drivers, on='driver_name')
 
-start_date = min(era_df['year'])
+start_date1 = min(era_df['year'])
 end_date1 = max(era_df['year'])
 max_days1 = end_date1-start_date1
 slider2 = st.slider('Select date', min_value=start_date1 ,max_value=end_date1)
-era_df = era_df[era_df['year']==slider]
+era_df = era_df[era_df['year']==slider2]
 
 driver_country = era_df.groupby('driver_nationality').driver_name.nunique().reset_index() 
 driver_country = driver_country.rename(columns = {'driver_name': 'driver_counts'})
