@@ -99,7 +99,7 @@ condf2.sort_values(by='year_', ascending=True)
 with st.echo(code_location='below'):
        fig = px.scatter(x=condf2["year_"], y=condf2["points_sum"],trendline="ols", trendline_scope="overall", trendline_color_override="black")
        fig.update_layout(
-              xaxis_title="Seizoen".
+              xaxis_title="Seizoen",
               yaxis_title="Aantal punten")
        st.write(fig)
 
