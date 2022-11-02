@@ -74,14 +74,28 @@ most_races = most_races.rename(columns ={'raceId': 'total_races'})
 con_analysis_df = merged_df.groupby(['year','constructors_name']).agg({'points': ['sum'],'raceId':['count'],'positionOrder':['mean','std'] }).reset_index()
 con_analysis_df.columns = ['_'.join(col).strip() for col in con_analysis_df.columns.values]
 
-condf= con_analysis_df[['year_','constructors_name_', 'points_sum']].tail(10)
-condf= condf.sort_values(by='points_sum', ascending=False)
+
 
 #constructor punten per seizoen
 st.write("Aantal punten per seizoen")
-condf= con_analysis_df[['year_','constructors_name_', 'points_sum']].tail(10)
+condf= con_analysis_df[['year_','constructors_name_', 'points_sum']]
 condf= condf.sort_values(by='points_sum', ascending=False)
-fig = st.bar_chart(condf, y='points_sum', x='constructors_name_')
+
+#slider van de punten per seizoen
+start_date7 = min(condf['year_'])
+end_date7 = max(condf['year_'])
+max_days7 = end_date7-start_date7
+
+with col2:
+       slider7 = st.slider('Select date', min_value=start_date7 ,max_value=end_date7)
+
+fig1 = st.bar_chart(condf, y='points_sum', x='constructors_name_')
+
+
+
+
+
+
 
 #meest succesvolle constructor
 st.write("Meest succesvolle constructeur")
