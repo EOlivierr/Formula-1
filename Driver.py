@@ -154,4 +154,4 @@ fig.update_layout(title='Correlatie tussen Qualificatie positie en eindpositie',
 
 fig.update_yaxes(type='linear')
 
-
+st.plotly_chart(fig)
