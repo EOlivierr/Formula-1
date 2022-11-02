@@ -108,4 +108,50 @@ fig.update_layout(
        yaxis_title="Aantal punten")
 st.plotly_chart(fig)
 
+#dropdown menu punten per seizoen per team
+fig = go.Figure()
+
+teller = 0
+buttonlist = [dict(label = "Kies een constructer", method='update', args=[{"visible": [True*len(alle_teams)]}])]
+
+for i in alle_teams:
+    df2= condf1[condf1['constructors_name_'] == i]
+    
+    fig.add_trace(go.Scatter(x=df2["year_"], y=df2["points_sum"], mode='markers', 
+                             #trendline="ols", trendline_scope="overall", 
+                             #trendline_color_override="black", 
+                             name=str(i)))
+    
+    lijst = [False]*len(alle_teams)
+    lijst[teller] = True
+    teller = teller + 1
+    
+    one_button = dict(label = str(i), method='update', args=[{"visible": lijst}])
+    buttonlist.append(one_button)
+    
+fig.update_layout(
+updatemenus=[
+        dict(
+            buttons=buttonlist,
+            direction="down",
+            pad={"r": 10, "t": 10},
+            showactive=True,
+            x=1.1,
+            xanchor="left",
+            y=1.2,
+            yanchor="top"
+        ),        
+    ]
+)
+
+fig.update_layout(title='Regressie lijn van de punten per seizoen per team',
+                   xaxis_title='Seizoen',
+                   yaxis_title='Aantal punten',
+                  
+                 )
+
+fig.update_yaxes(type='linear')
+
+st.plotly_chart(fig)
+
 
