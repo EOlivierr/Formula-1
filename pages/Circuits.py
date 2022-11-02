@@ -9,6 +9,8 @@ import streamlit as st
 import plotly.figure_factory as ff
 st.set_page_config(layout="wide")
 
+col1, col2 = st.columns([3, 1])
+
 circuits= pd.read_csv('circuits.csv')
 constructor_results= pd.read_csv('constructor_results.csv')
 constructor_standings= pd.read_csv('constructor_standings.csv')
@@ -86,7 +88,8 @@ m = most_circuits['circuit_name'].value_counts().reset_index().head(20)
 m =  m.rename(columns ={'circuit_name': 'count', 'index': 'circuit_name'})
 
 import plotly.express as px
-fig = st.bar_chart(m, x='circuit_name', y='count')
+with col1:
+       fig = st.bar_chart(m, x='circuit_name', y='count')
 
 #fig.update_layout(title='Top 20 meest voorkomende circuits in Formule 1',
 #                   xaxis_title='Circuits',
@@ -159,8 +162,8 @@ fig3.update_layout(title='Snelste rondetijden per Circuit per paar',
                    xaxis_title='Jaar',
                    yaxis_title='Rondetijden',
                    template = "plotly_dark")
-
-st.plotly_chart(fig3)
+with col1:
+       st.plotly_chart(fig3)
 
 #snelste pitlane
 pitstopsdf = pit_stops.merge(races , on = 'raceId')
@@ -205,8 +208,8 @@ fig1.update_layout(title='Snelste pitstoptijden per Circuit per jaar',
                    xaxis_title='Jaren',
                    yaxis_title='Pitstoptijden',
                    template = "plotly_dark")
-
-st.plotly_chart(fig1)
+with col1:
+       st.plotly_chart(fig1)
 
 #circuits op de kaart 
 
@@ -216,7 +219,9 @@ loc_df = merged_df[['circuit_name', 'year', 'country','lat', 'lng']]
 start_date = min(loc_df['year'])
 end_date = max(loc_df['year'])
 max_days = end_date-start_date
-slider = st.slider('Select date', min_value=start_date ,max_value=end_date)
+
+with col1:
+       slider = st.slider('Select date', min_value=start_date ,max_value=end_date)
 #value=(start_date,end_date)
 
 #loc_df = loc_df[(loc_df.year >= slider[0]) & (loc_df.year <= slider[1])]
@@ -240,7 +245,8 @@ fig2.update_layout(
         width=500,
         margin={"r":0,"t":0,"l":0,"b":0}
     )
-st.plotly_chart(fig2)
+with col2:
+       st.plotly_chart(fig2)
 
 
 
