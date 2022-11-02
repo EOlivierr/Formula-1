@@ -105,6 +105,6 @@ with st.echo(code_location='below'):
        fig.update_layout(
               xaxis_title="Seizoen",
               yaxis_title="Aantal punten")
-       st.write(fig)
+       st.plotly_chart(fig)
 
 
