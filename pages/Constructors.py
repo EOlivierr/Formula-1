@@ -90,3 +90,14 @@ condf1 = condf1[condf1['points_sum']>= 70]
 condf1= condf1.sort_values(by='points_sum', ascending=False)
 fig = st.bar_chart(condf1, y='points_sum', x='constructors_name_')
 
+#regplot voor een constructor
+
+condf2 = condf1[condf1.constructors_name_ == 'Ferrari']
+condf2 = condf2.drop(1085)
+condf1.sort_values(by='year_', ascending=True)
+
+fig2 = sns.regplot(data = condf2, x="year_", y='points_sum', ci=None)
+st.pyplot(fig2)
+
+
+
