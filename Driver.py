@@ -77,17 +77,27 @@ con_analysis_df.columns = ['_'.join(col).strip() for col in con_analysis_df.colu
 #Driver plots
 
 #Nationality plot
-driver_country = driversdf.groupby('nationality').driver_name.nunique().reset_index() 
+era_df= merged_df[['driver_name', 'driver_nationality']]
+era_df= era_df.merge(drivers, on='driver_name')
+
+start_date = min(era_df['year'])
+end_date1 = max(era_df['year'])
+max_days1 = end_date1-start_date1
+slider2 = st.slider('Select date', min_value=start_date1 ,max_value=end_date1)
+era_df = era_df[era_df['year']==slider]
+
+driver_country = era_df.groupby('driver_nationality').driver_name.nunique().reset_index() 
 driver_country = driver_country.rename(columns = {'driver_name': 'driver_counts'})
 driver_country1 = driver_country[driver_country.driver_counts >= 30].sort_values('driver_counts' ,ascending = False )
 driver_country1.loc[len(driver_country1.index)] = ['Others', (driver_country.driver_counts.sum() - driver_country1.driver_counts.sum())]
 
-labels = driver_country1['nationality']
+labels = driver_country1['driver_nationality']
 values = driver_country1['driver_counts']
 
 fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.3, pull=[0, 0, 0, 0, 0, 0, 0.2], hoverinfo='label+value')])
 fig.update_layout(title='Verdeling van nationaliteit per seizoen', template = "plotly_dark")
 st.plotly_chart(fig)
+
 
 condf= con_analysis_df[['year_','constructors_name_', 'points_sum']]
 condf= condf.sort_values(by='points_sum', ascending=False)
