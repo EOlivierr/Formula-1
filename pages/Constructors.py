@@ -97,14 +97,15 @@ condf2 = condf2.drop(1085)
 condf2.sort_values(by='year_', ascending=True)
 
 
-       fig = px.scatter(x=condf2["year_"], 
-                        y=condf2["points_sum"],
-                        trendline="ols", 
-                        trendline_scope="overall", 
-                        trendline_color_override="black",)
-       fig.update_layout(
-              xaxis_title="Seizoen",
-              yaxis_title="Aantal punten")
-       st.plotly_chart(fig)
+fig = px.scatter(x=condf2["year_"], 
+                 y=condf2["points_sum"],
+                 trendline="ols", 
+                 trendline_scope="overall", 
+                 trendline_color_override="black",)
+
+fig.update_layout(
+       xaxis_title="Seizoen",
+       yaxis_title="Aantal punten")
+st.plotly_chart(fig)
 
 
