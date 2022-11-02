@@ -105,7 +105,7 @@ with col1:
 st.write("Meest succesvolle constructeur")
 condf1= con_analysis_df[['year_','constructors_name_', 'points_sum']]
 condf1 = condf1[condf1['points_sum']>= 70]
-condf1= condf1.sort_values(by='points_sum', ascending=False)
+#condf1= condf1.sort_values(by='points_sum', ascending=False)
 
 start_date8 = min(condf1['year_'])
 end_date8 = max(condf1['year_'])
