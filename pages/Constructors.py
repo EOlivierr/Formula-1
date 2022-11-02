@@ -92,8 +92,8 @@ with col2:
        slider7 = st.slider('Select date', min_value=start_date7 ,max_value=end_date7)
        
 condf = condf[condf['year_']==slider7]
-
-fig1 = st.bar_chart(condf, y='points_sum', x='constructors_name_')
+with col1:
+       fig1 = st.bar_chart(condf, y='points_sum', x='constructors_name_')
 
 
 
@@ -106,7 +106,9 @@ st.write("Meest succesvolle constructeur")
 condf1= con_analysis_df[['year_','constructors_name_', 'points_sum']]
 condf1 = condf1[condf1['points_sum']>= 70]
 condf1= condf1.sort_values(by='points_sum', ascending=False)
-fig = st.bar_chart(condf1, y='points_sum', x='constructors_name_')
+
+with col1:
+       fig = st.bar_chart(condf1, y='points_sum', x='constructors_name_')
 
 #regplot voor een constructor
 
@@ -125,7 +127,9 @@ fig.update_layout(
        title=('Regressie lijn Ferrari'),
        xaxis_title="Seizoen",
        yaxis_title="Aantal punten")
-st.plotly_chart(fig)
+
+with col1:
+       st.plotly_chart(fig)
 
 #dropdown menu punten per seizoen per team
 alle_teams= condf1['constructors_name_'].unique()
@@ -173,6 +177,7 @@ fig.update_layout(title='Regressie lijn van de punten per seizoen per team',
 
 fig.update_yaxes(type='linear')
 
-st.plotly_chart(fig)
+with col1:
+       st.plotly_chart(fig)
 
 
