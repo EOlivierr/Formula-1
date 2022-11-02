@@ -76,7 +76,14 @@ con_analysis_df.columns = ['_'.join(col).strip() for col in con_analysis_df.colu
 
 #Driver plots
 
-#Nationality plot
+
+
+
+
+
+
+
+#Nationality plot oud
 driver_country = driversdf.groupby('nationality').driver_name.nunique().reset_index() 
 driver_country = driver_country.rename(columns = {'driver_name': 'driver_counts'})
 driver_country1 = driver_country[driver_country.driver_counts >= 30].sort_values('driver_counts' ,ascending = False )
@@ -90,6 +97,19 @@ fig3 = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.3, pull=[0, 0,
 fig3.update_layout(title='Verdeling van nationaliteit per seizoen', template = "plotly_dark")
 
 st.plotly_chart(fig3)
+
+#Nationality plot nieuw
+driversdf3 = drivers.copy()
+
+era_df= merged_df[['driver_name', 'driver_nationality']]
+
+
+
+
+
+
+
+
 
 
 condf= con_analysis_df[['year_','constructors_name_', 'points_sum']]
