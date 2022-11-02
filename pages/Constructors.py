@@ -77,4 +77,8 @@ con_analysis_df.columns = ['_'.join(col).strip() for col in con_analysis_df.colu
 condf= con_analysis_df[['year_','constructors_name_', 'points_sum']].tail(10)
 condf= condf.sort_values(by='points_sum', ascending=False)
 
+#constructor punten per seizoen
+condf= con_analysis_df[['year_','constructors_name_', 'points_sum']].tail(10)
+condf= condf.sort_values(by='points_sum', ascending=False)
+fig = st.bar_chart(condf, y='points_sum', x='constructors_name_',  text_auto='.2s')
 
