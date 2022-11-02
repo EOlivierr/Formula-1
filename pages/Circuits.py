@@ -79,6 +79,42 @@ con_analysis_df.columns = ['_'.join(col).strip() for col in con_analysis_df.colu
 condf= con_analysis_df[['year_','constructors_name_', 'points_sum']].tail(10)
 condf= condf.sort_values(by='points_sum', ascending=False)
 
+#circuits op de kaart 
+
+loc_df = merged_df[['circuit_name', 'year', 'country','lat', 'lng']]
+#slider voor map
+
+start_date = min(loc_df['year'])
+end_date = max(loc_df['year'])
+max_days = end_date-start_date
+
+with col2:
+       slider = st.slider('Select date', min_value=start_date ,max_value=end_date)
+#value=(start_date,end_date)
+
+#loc_df = loc_df[(loc_df.year >= slider[0]) & (loc_df.year <= slider[1])]
+loc_df = loc_df[loc_df['year']== slider]
+
+loc_df['text']= loc_df['circuit_name'] + ', ' + 'Country: ' + loc_df['country'].astype(str)
+
+fig2 = go.Figure(data=go.Scattergeo(
+        lon = loc_df['lng'],
+        lat = loc_df['lat'],
+        text = loc_df['text'],
+        mode = 'markers',
+        marker_colorscale = "thermal"
+        ))
+
+fig2.update_geos(projection_type="orthographic")
+
+fig2.update_layout(
+        title = 'Circuits of Formula 1 across the world (Hover for info)',
+        height=500,
+        width=500,
+        margin={"r":0,"t":0,"l":0,"b":0}
+    )
+with col1:
+       st.plotly_chart(fig2)
 
 #top 20 meest voorkomende circuits
 st.write("Top 20 meest voorkomende circuits")
@@ -211,42 +247,7 @@ fig1.update_layout(title='Snelste pitstoptijden per Circuit per jaar',
 with col1:
        st.plotly_chart(fig1)
 
-#circuits op de kaart 
 
-loc_df = merged_df[['circuit_name', 'year', 'country','lat', 'lng']]
-#slider voor map
-
-start_date = min(loc_df['year'])
-end_date = max(loc_df['year'])
-max_days = end_date-start_date
-
-with col2:
-       slider = st.slider('Select date', min_value=start_date ,max_value=end_date)
-#value=(start_date,end_date)
-
-#loc_df = loc_df[(loc_df.year >= slider[0]) & (loc_df.year <= slider[1])]
-loc_df = loc_df[loc_df['year']== slider]
-
-loc_df['text']= loc_df['circuit_name'] + ', ' + 'Country: ' + loc_df['country'].astype(str)
-
-fig2 = go.Figure(data=go.Scattergeo(
-        lon = loc_df['lng'],
-        lat = loc_df['lat'],
-        text = loc_df['text'],
-        mode = 'markers',
-        marker_colorscale = "thermal"
-        ))
-
-fig2.update_geos(projection_type="orthographic")
-
-fig2.update_layout(
-        title = 'Circuits of Formula 1 across the world (Hover for info)',
-        height=500,
-        width=500,
-        margin={"r":0,"t":0,"l":0,"b":0}
-    )
-with col1:
-       st.plotly_chart(fig2)
 
 
 
