@@ -104,3 +104,11 @@ fig1 = st.bar_chart(drivers1, y='points_sum', x=('driver_name'))
                    #yaxis_title='Punten',
                    #template = "plotly_dark")
 #st.plotly_chart(fig1)
+
+#Correlatie tussen p1 en pole
+scat_df = merged_df[['raceId', 'year','driver_name', 'constructors_name', 'grid', 'position', 'circuit_name']]
+scat_df = scat_df[scat_df.year == 2021]
+#scat_df = scat_df[scat_df.constructors_name == 'Williams']
+#scat_df = scat_df[scat_df.driver_name == 'Nicholas Latifi']
+scat_df = scat_df[scat_df.position != r'\N']
+scat_df = scat_df.sort_values(by= ['position', 'grid'], ascending = [True, True]).head(500)
