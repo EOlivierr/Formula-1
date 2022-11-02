@@ -2,7 +2,7 @@ import pandas as pd
 import datetime
 import matplotlib.pyplot as plt 
 import seaborn as sns 
-import plotly.graph_objects as px
+import plotly.express as px
 import numpy as np
 import plotly.graph_objects as go
 import streamlit as st
