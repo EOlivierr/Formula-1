@@ -116,13 +116,13 @@ scat_df = scat_df.sort_values(by= ['position', 'grid'], ascending = [True, True]
 with st.echo(code_location='below'):
     import plotly.express as px
 
-    fig = px.scatter(scat_df, x="grid", y="position"),
-    )
+    fig = px.scatter(scat_df, x="grid", y="position")
+    
     fig.update_layout(title='Correlatie tussen Qualificatie positie en eindpositie',
                    xaxis_title='Qualificatie positie',
                    yaxis_title='Eindpositie',
-                   template = "plotly_dark"),
-    )
+                   template = "plotly_dark")
+    
 
     st.write(fig)
 
