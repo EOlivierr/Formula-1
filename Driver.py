@@ -89,7 +89,7 @@ fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.3, pull=[0, 0, 
 
 fig.update_layout(title='Verdeling van nationaliteit per seizoen', template = "plotly_dark")
 
-fig.show()
+st.pyplot(fig)
 
 
 
