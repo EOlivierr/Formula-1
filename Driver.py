@@ -108,7 +108,7 @@ driver_country4 = driver_country3[driver_country3.driver_counts >= 30].sort_valu
 driver_country4.loc[len(driver_country3.index)] = ['Others', (driver_country3.driver_counts.sum() - driver_country4.driver_counts.sum())]
 st.dataframe(driver_country4)
 
-start_date5 = min(driver_country4['year'])
+#start_date5 = min(driver_country4['year'])
 #end_date5 = max(driver_country4['year'])
 #max_days5 = end_date5-start_date5
 #slider5 = st.slider('Select date', min_value=start_date5 ,max_value=end_date5)
