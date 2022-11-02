@@ -113,7 +113,7 @@ scat_df = scat_df[scat_df.year == 2021]
 scat_df = scat_df[scat_df.position != r'\N']
 scat_df = scat_df.sort_values(by= ['position', 'grid'], ascending = [True, True]).head(500)
 
-fig2 = ff.create_distplot(scat_df, x="grid", y="position")
+fig2 = ff.create_distplot(scat_df["grid"], scat_df["position"])
 
 st.plotly_chart(fig2, use_container_width=True)
 
