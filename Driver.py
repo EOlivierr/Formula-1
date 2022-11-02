@@ -115,11 +115,11 @@ scat_df = scat_df.sort_values(by= ['position', 'grid'], ascending = [True, True]
 
 fig = st.plotly_chart(scat_df, x="grid", y="position")
 
-fig.update_layout(title='Correlatie tussen Qualificatie positie en eindpositie',
-                   xaxis_title='Qualificatie positie',
-                   yaxis_title='Eindpositie',
-                   template = "plotly_dark")
+#fig.update_layout(title='Correlatie tussen Qualificatie positie en eindpositie',
+                   #xaxis_title='Qualificatie positie',
+                   #yaxis_title='Eindpositie',
+                   #template = "plotly_dark")
 
-fig.update_yaxes(type='linear')
+#fig.update_yaxes(type='linear')
 
-fig.show()
+#fig.show()
