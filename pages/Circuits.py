@@ -209,15 +209,22 @@ fig1.update_layout(title='Snelste pitstoptijden per Circuit per jaar',
 st.plotly_chart(fig1)
 
 #circuits op de kaart 
-circuitsdf['text'] = circuitsdf['circuit_name'] + ', ' + 'Country: ' + circuitsdf['country'].astype(str)
+
+loc_df = merged_df[['circuit_name', 'year', 'country','lat', 'lng']]
+loc_df['text']= loc_df['circuit_name'] + ', ' + 'Country: ' + loc_df['country'].astype(str)
+
+start_date = min(loc_df['year'])
+end_date = max(loc_df['year'])
+max_days = end_date-start_date
+
+slider = st.slider('Select date', min_value=start_date, value=(start_date,end_date) ,max_value=end_date, format=format2)
 
 fig2 = go.Figure(data=go.Scattergeo(
-        lon = circuitsdf['lng'],
-        lat = circuitsdf['lat'],
-        text = circuitsdf['text'],
+        lon = loc_df['lng'],
+        lat = loc_df['lat'],
+        text = loc_df['text'],
         mode = 'markers',
         marker_colorscale = "thermal"
-        
         ))
 
 fig2.update_geos(projection_type="orthographic")
@@ -230,8 +237,5 @@ fig2.update_layout(
     )
 st.plotly_chart(fig2)
 
-start_date = min(loc_df['year'])
-end_date = max(loc_df['year'])
-max_days = end_date-start_date
 
-slider = st.slider('Select date', min_value=start_date, value=(start_date,end_date) ,max_value=end_date, format=format2)
+
