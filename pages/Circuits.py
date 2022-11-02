@@ -134,31 +134,33 @@ lap3 = lap_time_catalunya.groupby('year')[['fastest_lap']].min().reset_index()
 lap4 = lap_time_hungaroring.groupby('year')[['fastest_lap']].min().reset_index()
 lap5 = lap_time_spa.groupby('year')[['fastest_lap']].min().reset_index()
 
-fig = go.Figure()
+fig3 = go.Figure()
 
-fig.add_trace(go.Scatter(x=lap.year, y=lap.fastest_lap,
+fig3.add_trace(go.Scatter(x=lap.year, y=lap.fastest_lap,
                     mode='lines',
                     name='Silverstone'))
-fig.add_trace(go.Scatter(x=lap1.year, y=lap1.fastest_lap,
+fig3.add_trace(go.Scatter(x=lap1.year, y=lap1.fastest_lap,
                     mode='lines',
                     name='Monaco'))
-fig.add_trace(go.Scatter(x=lap2.year, y=lap2.fastest_lap,
+fig3.add_trace(go.Scatter(x=lap2.year, y=lap2.fastest_lap,
                     mode='lines',
                     name='Monza'))
-fig.add_trace(go.Scatter(x=lap3.year, y=lap3.fastest_lap,
+fig3.add_trace(go.Scatter(x=lap3.year, y=lap3.fastest_lap,
                     mode='lines',
                     name='Catalunya'))
-fig.add_trace(go.Scatter(x=lap4.year, y=lap4.fastest_lap,
+fig3.add_trace(go.Scatter(x=lap4.year, y=lap4.fastest_lap,
                     mode='lines',
                     name='Hungaroring'))
-fig.add_trace(go.Scatter(x=lap5.year, y=lap5.fastest_lap,
+fig3.add_trace(go.Scatter(x=lap5.year, y=lap5.fastest_lap,
                     mode='lines',
                     name='Spa-Francorchamps'))
 
-fig.update_layout(title='Snelste rondetijden per Circuit per paar',
+fig3.update_layout(title='Snelste rondetijden per Circuit per paar',
                    xaxis_title='Jaar',
                    yaxis_title='Rondetijden',
                    template = "plotly_dark")
+
+st.plotly_chart(fig3)
 
 #snelste pitlane
 pitstopsdf = pit_stops.merge(races , on = 'raceId')
