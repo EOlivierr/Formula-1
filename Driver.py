@@ -102,7 +102,7 @@ st.plotly_chart(fig3)
 driversdf3 = drivers.copy()
 
 era_df= merged_df[['driver_name', 'driver_nationality']]
-era_df= era_df.merge(driversdf3)
+era_df1= era_df.merge(driversdf3, on='driver_name')
 
 
 
