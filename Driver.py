@@ -116,14 +116,44 @@ scat_df = scat_df.sort_values(by= ['position', 'grid'], ascending = [True, True]
 with st.echo(code_location='below'):
     import plotly.express as px
 
-    fig = px.scatter(scat_df, x="grid", y="position")
+    fig = go.Figure()
+
+teller = 0
+buttonlist = [dict(label = "Kies een coureur", method='update', args=[{"visible": [True*len(alle_drivers)]}])]
+
+for i in alle_drivers:
+    df2= scat_df[scat_df['driver_name'] == i]
     
-    fig.update_layout(title='Correlatie tussen Qualificatie positie en eindpositie',
+    fig.add_trace(go.Scatter(x=df2["grid"], y=df2["position"], mode='markers', name=str(i)))
+    
+    lijst = [False]*len(alle_drivers)
+    lijst[teller] = True
+    teller = teller + 1
+    
+    one_button = dict(label = str(i), method='update', args=[{"visible": lijst}])
+    buttonlist.append(one_button)
+    
+fig.update_layout(
+updatemenus=[
+        dict(
+            buttons=buttonlist,
+            direction="down",
+            pad={"r": 10, "t": 10},
+            showactive=True,
+            x=1.1,
+            xanchor="left",
+            y=1.2,
+            yanchor="top"
+        ),        
+    ]
+)
+
+fig.update_layout(title='Correlatie tussen Qualificatie positie en eindpositie',
                    xaxis_title='Qualificatie positie',
                    yaxis_title='Eindpositie',
                    template = "plotly_dark")
-    
 
-    st.write(fig)
+fig.update_yaxes(type='linear')
+
 
 
