@@ -96,8 +96,9 @@ condf2 = condf1[condf1.constructors_name_ == 'Ferrari']
 condf2 = condf2.drop(1085)
 condf1.sort_values(by='year_', ascending=True)
 
-sns.regplot(data = condf2, x="year_", y='points_sum', ci=None)
-st.pyplot()
+fig = px.scatter(condf2, x="year_", y="points_sum", 
+                 trendline="ols", trendline_scope="overall", trendline_color_override="black")
+fig.show()
 
 
 
