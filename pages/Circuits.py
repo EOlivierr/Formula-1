@@ -216,16 +216,16 @@ start_date = min(loc_df['year'])
 end_date = max(loc_df['year'])
 max_days = end_date-start_date
 
-slider1 = st.slider('Select date', min_value=start_date, value=(start_date,end_date) ,max_value=end_date)
+slider = st.slider('Select date', min_value=start_date, value=(start_date,end_date) ,max_value=end_date)
 
-loc_df1 = loc_df[loc_df['year']== slider1]
+loc_df = loc_df[loc_df['year']== slider]
 
-loc_df1['text']= loc_df1['circuit_name'] + ', ' + 'Country: ' + loc_df1['country'].astype(str)
+loc_df['text']= loc_df['circuit_name'] + ', ' + 'Country: ' + loc_df['country'].astype(str)
 
 fig2 = go.Figure(data=go.Scattergeo(
-        lon = loc_df1['lng'],
-        lat = loc_df1['lat'],
-        text = loc_df1['text'],
+        lon = loc_df['lng'],
+        lat = loc_df['lat'],
+        text = loc_df['text'],
         mode = 'markers',
         marker_colorscale = "thermal"
         ))
