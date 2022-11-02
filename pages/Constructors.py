@@ -105,7 +105,7 @@ condf1 = condf1[condf1['points_sum']>= 70]
 #condf1= condf1.sort_values(by='points_sum', ascending=False)
 
 fig9 = px.bar(condf1, y='points_sum', x='constructors_name_')
- st.plotly_chart(fig9)
+st.plotly_chart(fig9)
   
        
        
