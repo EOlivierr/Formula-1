@@ -6,6 +6,7 @@ import plotly.graph_objects as px
 import numpy as np
 import plotly.graph_objects as go
 import streamlit as st
+st.set_page_config(layout="wide")
 
 circuits= pd.read_csv('circuits.csv')
 constructor_results= pd.read_csv('constructor_results.csv')
