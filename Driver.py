@@ -216,5 +216,5 @@ df=pd.DataFrame(json)
 
 df1=df.sample()
 
-st.write(df1['author'],": ", df1['quote'])
+st.write('df1['author']',": ", 'df1['quote']')
        
