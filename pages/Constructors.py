@@ -122,7 +122,7 @@ max_days9 = end_date9-start_date9
 with st.sidebar:
        slider9 = st.slider('Selecteer de datum om de punten van de teams te zien!',value=(start_date9,end_date9), min_value=start_date9 ,max_value=end_date9)
 
-condf1 = condf1[(condf1['year_'] >= slider_begin) & (condf1['year_'] <= condf1)]   
+condf1 = condf1[(condf1['year_'] >= slider_begin9) & (condf1['year_'] <= condf1)]   
 
 fig9 = px.bar(condf1, y='points_sum', x='constructors_name_')
 
