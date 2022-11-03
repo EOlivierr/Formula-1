@@ -151,6 +151,8 @@ with st.sidebar:
        optie = st.selectbox(
               'Selecteer een team',
          (alle_teams))
+       
+st.write(optie) 
 
 #condf2 = con_analysis_df[con_analysis_df.constructors_name_ == 'Ferrari']
 condf2 = condf2[(condf2.constructors_name_ == optie)
@@ -170,8 +172,8 @@ condf2 = condf2[(condf2.constructors_name_ == optie)
 
 #with col2:
        #st.plotly_chart(fig)
-st.write(optie)     
-st.dataframe(condf2)
+    
+#st.dataframe(condf2)
        
        
        
