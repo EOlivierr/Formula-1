@@ -171,7 +171,8 @@ with st.sidebar:
 #with col2:
        #st.plotly_chart(fig)
        
-
+with st.sidebar:       
+       st.dataframe(condf2)
        
        
        
