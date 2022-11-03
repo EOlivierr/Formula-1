@@ -185,7 +185,7 @@ condf2 = condf2[(condf2.constructors_name_ == optie)
 #dropdown menu punten per seizoen per team
 
 
-fig8 = go.Figure()
+fig = go.Figure()
 
 teller = 0
 buttonlist = [dict(label = "Kies een constructeur", method='update', args=[{"visible": [True*len(alle_teams)]}])]
@@ -205,7 +205,7 @@ for i in alle_teams:
     one_button = dict(label = str(i), method='update', args=[{"visible": lijst}])
     buttonlist.append(one_button)
     
-fig8.update_layout(
+fig.update_layout(
 updatemenus=[
         dict(
             buttons=buttonlist,
@@ -220,14 +220,14 @@ updatemenus=[
     ]
 )
 
-fig8.update_layout(xaxis_title='Seizoen',
+fig.update_layout(xaxis_title='Seizoen',
                    yaxis_title='Aantal punten',
                   
                  )
 
-fig8.update_yaxes(type='linear')
+fig.update_yaxes(type='linear')
 
 with col2:
-       st.plotly_chart(fig8)
+       st.plotly_chart(fig)
 
 
