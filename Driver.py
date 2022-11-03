@@ -29,7 +29,7 @@ response = requests.request("GET", url, headers=headers)
 
 json=response.json()
 index = pd.Index(['s1', 's2', 's3', 's1', 's2', 's3', 's1', 's2', 's3', 's1'])
-df=pd.DataFrame(json).set_index('id', drop=True, inplace=True)
+df=pd.DataFrame(json).set_index('id', drop=False, inplace=False)
 df1=df.sample()
 
 with col4:
