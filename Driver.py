@@ -93,7 +93,7 @@ end_date5 = max(nat_df1['year'])
 max_days5 = end_date5-start_date5
 
 with st.sidebar:
-       slider5 = st.slider('Selecteer het jaargetal om de grafiek aan te passen!', min_value=start_date5 ,max_value=end_date5)
+       slider5 = st.slider('Selecteer het jaargetal om de Nationaliteiten te zien!', min_value=start_date5 ,max_value=end_date5)
 
 
 nat_df1 = nat_df1[nat_df1['year']==slider5]
@@ -122,7 +122,7 @@ end_date = max(drivers['year'])
 max_days = end_date-start_date
 
 with st.sidebar:
-       slider = st.slider('Select date', min_value=start_date ,max_value=end_date)
+       slider = st.slider('Selecteer het jaargetal om de punten van de Coureurs te zien te zien!', min_value=start_date ,max_value=end_date)
 
 
 drivers = drivers[drivers['year']==slider]
