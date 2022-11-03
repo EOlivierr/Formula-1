@@ -131,7 +131,8 @@ drivers = drivers.sort_values(by='points_sum')
 #Punten van de driver plot
 with col2:
        fig1 = st.bar_chart(drivers, y='points_sum', x=('driver_name'))
- 
+fig2.update_layout(xaxis_title='Hoi',
+                   yaxis_title='Hoi')
        
 #Correlatie tussen p1 en pole
 scat_df = merged_df[['raceId', 'year','driver_name', 'constructors_name', 'grid', 'position', 'circuit_name']]
