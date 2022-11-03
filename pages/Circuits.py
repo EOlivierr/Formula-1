@@ -115,7 +115,7 @@ fig2 = go.Figure(data=go.Scattergeo(
 
 fig2.update_geos(projection_type="orthographic")
 
-fig2.update_layout(layout_title_text="The Title",
+fig2.update_layout(title="The Title",
        height=500,
         width=700,
         margin={"r":0,"t":0,"l":0,"b":0}
