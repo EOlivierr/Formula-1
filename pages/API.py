@@ -20,7 +20,7 @@ HOST = "https://ergast.com/api/f1"
 CHAMPIONSHIPS = frozenset({"DriverStandings", "ConstructorStandings"})
 FIRST_F1_SEASON = 1950
 CURRENT_F1_SEASON = date.today().year
-PAGE_NAME = "Enrico & Matthijs eindopdracht"
+PAGE_NAME = "API"
 
 
 def build_url_base(season) -> str:
