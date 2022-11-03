@@ -8,6 +8,6 @@ xlrd >= 1.0.0
 pandas==1.4.4
 matplotlib==3.5.1
 seaborn==0.11.2
-bokeh==3.0.0
+bokeh==2.4.3
 requests
 aiohttp
