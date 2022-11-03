@@ -129,9 +129,7 @@ fig = px.scatter(x=condf2["year_"],
                  trendline_scope="overall", 
                  trendline_color_override="black",)
 
-fig.update_layout(
-       title=('Regressie lijn Ferrari'),
-       xaxis_title="Seizoen",
+fig.update_layout(xaxis_title="Seizoen",
        yaxis_title="Aantal punten")
 
 with col2:
@@ -175,8 +173,7 @@ updatemenus=[
     ]
 )
 
-fig.update_layout(title='Regressie lijn van de punten per seizoen per team',
-                   xaxis_title='Seizoen',
+fig.update_layout(xaxis_title='Seizoen',
                    yaxis_title='Aantal punten',
                   
                  )
