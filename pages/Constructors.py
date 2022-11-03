@@ -151,8 +151,6 @@ with st.sidebar:
        optie = st.selectbox(
               'Selecteer een team',
          (alle_teams))
-       
-st.write(optie) 
 
 #condf2 = con_analysis_df[con_analysis_df.constructors_name_ == 'Ferrari']
 condf2 = condf2[condf2['constructors_name_']==optie]
@@ -170,62 +168,53 @@ fig.update_layout(xaxis_title="Seizoen",
 
 with col2:
        st.plotly_chart(fig)
-    
-#st.dataframe(condf2)
-       
-       
-       
-       
-       
-       
-       
 
 #dropdown menu punten per seizoen per team
 
 
-#fig = go.Figure()
+fig = go.Figure()
 
-#teller = 0
-#buttonlist = [dict(label = "Kies een constructeur", method='update', args=[{"visible": [True*len(alle_teams)]}])]
+teller = 0
+buttonlist = [dict(label = "Kies een constructeur", method='update', args=[{"visible": [True*len(alle_teams)]}])]
 
-#for i in alle_teams:
-    #df2= condf1[condf1['constructors_name_'] == i]
+for i in alle_teams:
+    df2= condf1[condf1['constructors_name_'] == i]
     
-    #fig8.add_trace(go.Scatter(x=df2["year_"], y=df2["points_sum"], mode='markers', 
-                             ##trendline="ols", trendline_scope="overall", 
-                             ##trendline_color_override="black", 
-                             #name=str(i)))
+    fig8.add_trace(go.Scatter(x=df2["year_"], y=df2["points_sum"], mode='markers', 
+                             #trendline="ols", trendline_scope="overall", 
+                             #trendline_color_override="black", 
+                             name=str(i)))
     
-    #lijst = [False]*len(alle_teams)
-    #lijst[teller] = True
-    #teller = teller + 1
+    lijst = [False]*len(alle_teams)
+    lijst[teller] = True
+    teller = teller + 1
     
-    #one_button = dict(label = str(i), method='update', args=[{"visible": lijst}])
-    #buttonlist.append(one_button)
+    one_button = dict(label = str(i), method='update', args=[{"visible": lijst}])
+    buttonlist.append(one_button)
     
-#fig.update_layout(
-#updatemenus=[
-        #dict(
-            #buttons=buttonlist,
-            #direction="down",
-            #pad={"r": 10, "t": 10},
-            #showactive=True,
-            #x=1.1,
-            #xanchor="left",
-            #y=1.2,
-            #yanchor="top"
-        #),        
-    #]
-#)
+fig.update_layout(
+updatemenus=[
+        dict(
+            buttons=buttonlist,
+            direction="down",
+            pad={"r": 10, "t": 10},
+            showactive=True,
+            x=1.1,
+            xanchor="left",
+            y=1.2,
+            yanchor="top"
+        ),        
+    ]
+)
 
-#fig.update_layout(xaxis_title='Seizoen',
-                   #yaxis_title='Aantal punten',
+fig.update_layout(xaxis_title='Seizoen',
+                   yaxis_title='Aantal punten',
                   
-                 #)
+                 )
 
-#fig.update_yaxes(type='linear')
+fig.update_yaxes(type='linear')
 
-#with col2:
-       #st.plotly_chart(fig)
+with col2:
+       st.plotly_chart(fig)
 
 
