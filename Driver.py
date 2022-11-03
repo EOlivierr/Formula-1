@@ -41,8 +41,8 @@ style = df1.style.hide_index()st.write(styler.to_html(), unsafe_allow_html=True)
 
 with col4:
 	st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-	st.write(df1['author'], df1['quote'])
-	
+	#st.write(df1['author'], df1['quote'])
+	st.write(style)
 	
 	
 	
