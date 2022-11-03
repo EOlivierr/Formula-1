@@ -164,7 +164,9 @@ with st.sidebar:
        optie = st.selectbox(
               'How would you like to be contacted?',
          ('Email', 'Home phone', 'Mobile phone'))
-        st.write('You selected:', option)       
+       
+with st.sidebar:       
+       st.write('You selected:', option)       
        
        
        
