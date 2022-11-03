@@ -8,8 +8,7 @@ import plotly.graph_objects as go
 import streamlit as st
 import plotly.figure_factory as ff
 st.set_page_config(layout="wide")
-st.markdown("[![Foo](https://upload.wikimedia.org/wikipedia/commons/7/7c/Kaggle_logo.png)]
-            (https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020), width=400")
+st.markdown("[![Foo](https://upload.wikimedia.org/wikipedia/commons/7/7c/Kaggle_logo.png)](https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020), width=400")
 col1, col2 = st.columns([3, 1])
 
 circuits= pd.read_csv('circuits.csv')
