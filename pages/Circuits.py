@@ -110,11 +110,13 @@ fig2 = go.Figure(data=go.Scattergeo(
         text = loc_df['text'],
         mode = 'markers',
         marker_colorscale = "thermal"
+       
         ))
 
 fig2.update_geos(projection_type="orthographic")
 
-fig2.update_layout(height=500,
+fig2.update_layout(layout_title_text="The Title",
+       height=500,
         width=700,
         margin={"r":0,"t":0,"l":0,"b":0}
     )
