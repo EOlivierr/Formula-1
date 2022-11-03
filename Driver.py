@@ -8,7 +8,7 @@ import plotly.graph_objects as go
 import streamlit as st
 import plotly.figure_factory as ff
 st.set_page_config(layout="wide")
-
+st.markdown("[![Foo](http://www.google.com.au/images/nav_logo7.png)](http://google.com.au/)")
 col1, col2 = st.columns([3, 1])
 
 circuits= pd.read_csv('circuits.csv')
