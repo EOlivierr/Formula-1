@@ -185,7 +185,7 @@ condf2 = condf2[(condf2.constructors_name_ == optie)
 #dropdown menu punten per seizoen per team
 
 
-fig = go.Figure()
+fig8 = go.Figure()
 
 teller = 0
 buttonlist = [dict(label = "Kies een constructeur", method='update', args=[{"visible": [True*len(alle_teams)]}])]
@@ -193,7 +193,7 @@ buttonlist = [dict(label = "Kies een constructeur", method='update', args=[{"vis
 for i in alle_teams:
     df2= condf1[condf1['constructors_name_'] == i]
     
-    fig.add_trace(go.Scatter(x=df2["year_"], y=df2["points_sum"], mode='markers', 
+    fig8.add_trace(go.Scatter(x=df2["year_"], y=df2["points_sum"], mode='markers', 
                              #trendline="ols", trendline_scope="overall", 
                              #trendline_color_override="black", 
                              name=str(i)))
@@ -205,7 +205,7 @@ for i in alle_teams:
     one_button = dict(label = str(i), method='update', args=[{"visible": lijst}])
     buttonlist.append(one_button)
     
-fig.update_layout(
+fig8.update_layout(
 updatemenus=[
         dict(
             buttons=buttonlist,
@@ -220,14 +220,14 @@ updatemenus=[
     ]
 )
 
-fig.update_layout(xaxis_title='Seizoen',
+fig8.update_layout(xaxis_title='Seizoen',
                    yaxis_title='Aantal punten',
                   
                  )
 
-fig.update_yaxes(type='linear')
+fig8.update_yaxes(type='linear')
 
 with col2:
-       st.plotly_chart(fig)
+       st.plotly_chart(fig8)
 
 
