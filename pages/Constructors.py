@@ -171,8 +171,7 @@ condf2 = condf2[(condf2.constructors_name_ == optie)
 #with col2:
        #st.plotly_chart(fig)
        
-with st.sidebar:       
-       st.dataframe(condf2)
+st.dataframe(condf2)
        
        
        
