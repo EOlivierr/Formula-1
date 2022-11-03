@@ -142,7 +142,7 @@ drivers = drivers.sort_values(by='points_sum')
 #Punten van de driver plot
 with col2:
 	st.write("Punten per driver per seizoen")
-       fig1 = st.bar_chart(drivers, y='points_sum', x=('driver_name'))
+	fig1 = st.bar_chart(drivers, y='points_sum', x=('driver_name'))
 
        
 #Correlatie tussen p1 en pole
