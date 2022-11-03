@@ -27,7 +27,7 @@ headers = {
 response = requests.request("GET", url, headers=headers)
 
 json=response.json()
-df=pd.DataFrame(json)
+df=pd.DataFrame(json).set_index('id')
 df1=df.sample()
 
 with col4:
