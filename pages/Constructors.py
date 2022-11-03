@@ -98,6 +98,7 @@ with st.sidebar:
        slider7 = st.slider('Selecteer de datum om de punten van de teams te zien!', min_value=start_date7 ,max_value=end_date7)
        
 condf = condf[condf['year_']==slider7]
+
 with col2:
        fig1 = st.bar_chart(condf, y='points_sum', x='constructors_name_')
 
@@ -105,15 +106,39 @@ with col2:
 
 
 
+       
+       
+       
 #meest succesvolle constructor
 condf1= con_analysis_df[['year_','constructors_name_', 'points_sum']]
-condf1 = condf1[condf1['points_sum']>= 100]
-#condf1= condf1.sort_values(by='points_sum', ascending=False)
+condf1 = condf1[condf1['points_sum']>= 30]
+condf1= condf1.sort_values(by='points_sum', ascending=False)
+
+#slider van succesvolle constructor
+start_date9 = min(condf1['year_'])
+end_date9 = max(condf1['year_'])
+max_days9 = end_date9-start_date9
+
+with st.sidebar:
+       slider9 = st.slider('Selecteer de datum om de punten van de teams te zien!',value=(start_date9,end_date9), min_value=start_date9 ,max_value=end_date9)
+
+condf1 = condf1[(condf1['year_'] >= slider_begin) & (condf1['year_'] <= condf1)]   
 
 fig9 = px.bar(condf1, y='points_sum', x='constructors_name_')
 
 with col2:
        st.plotly_chart(fig9)
+       
+
+       
+ 
+       
+       
+       
+       
+       
+       
+       
        
 #regplot voor een constructor
 
