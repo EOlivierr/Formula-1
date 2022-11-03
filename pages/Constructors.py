@@ -112,7 +112,8 @@ with col2:
 #meest succesvolle constructor
 condf1= con_analysis_df[['year_','constructors_name_', 'points_sum']]
 condf1 = condf1[condf1['points_sum']>= 30]
-condf1= condf1.sort_values(by='points_sum', ascending=False)
+#condf1= condf1.sort_values(by='points_sum', ascending=False)
+condf1.sort_values(by='year_', ascending=True)
 
 #slider van succesvolle constructor
 start_date9 = min(condf1['year_'])
