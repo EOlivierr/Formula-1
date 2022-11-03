@@ -27,10 +27,9 @@ headers = {
 }
 response = requests.request("GET", url, headers=headers)
 
-json=response.json()
-index = pd.Index(['s1', 's2', 's3', 's1', 's2', 's3', 's1', 's2', 's3', 's1'])
-df=pd.DataFrame(json).set_index('id', drop=False, inplace=False)
-df1=df.sample()
+data=response.json()
+df1 = pd.DataFrame(data, index = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"])
+df1=df1.sample()
 
 with col4:
 	st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
