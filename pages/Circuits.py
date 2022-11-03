@@ -11,6 +11,9 @@ import requests
 from PIL import Image
 st.set_page_config(layout="wide")
 
+with st.sidebar:
+	st.caption('Op deze pagina is te zien op welke circuits er hedendaags geracet wordt en welke het in het verleden zijn geweest. Met de slider kunnen er verschillende seizoenen worden geselecteerd.')
+
 col1, col2, col3, col4 = st.columns([1, 3, 1, 1])
 
 image = Image.open('formula-1-logo-5-3.png')
