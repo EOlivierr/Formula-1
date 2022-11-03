@@ -103,7 +103,7 @@ with st.sidebar:
 loc_df = loc_df[loc_df['year']== slider]
 
 loc_df['text']= loc_df['circuit_name'] + ', ' + 'Country: ' + loc_df['country'].astype(str)
-
+st.write("Circuits op de kaart")
 fig2 = go.Figure(data=go.Scattergeo(
         lon = loc_df['lng'],
         lat = loc_df['lat'],
@@ -115,8 +115,7 @@ fig2 = go.Figure(data=go.Scattergeo(
 
 fig2.update_geos(projection_type="orthographic")
 
-fig2.update_layout(title="The Title",
-       height=500,
+fig2.update_layout(height=500,
         width=700,
         margin={"r":0,"t":0,"l":0,"b":0}
     )
