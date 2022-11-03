@@ -7,10 +7,16 @@ import numpy as np
 import plotly.graph_objects as go
 import streamlit as st
 import plotly.figure_factory as ff
+from PIL import Image
 PAGE_NAME = "Constructors"
 st.set_page_config(layout="wide")
 
-col1, col2 = st.columns([3, 1])
+col1, col2, col3, col4 = st.columns([1, 3, 1, 1])
+
+image = Image.open('formula-1-logo-5-3.png')
+
+with col4:
+       st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
 
 circuits= pd.read_csv('circuits.csv')
 constructor_results= pd.read_csv('constructor_results.csv')
@@ -89,11 +95,11 @@ start_date7 = min(condf['year_'])
 end_date7 = max(condf['year_'])
 max_days7 = end_date7-start_date7
 
-with col2:
+with st.sidebar:
        slider7 = st.slider('Select date', min_value=start_date7 ,max_value=end_date7)
        
 condf = condf[condf['year_']==slider7]
-with col1:
+with col2:
        fig1 = st.bar_chart(condf, y='points_sum', x='constructors_name_')
 
 
@@ -106,13 +112,9 @@ condf1 = condf1[condf1['points_sum']>= 100]
 #condf1= condf1.sort_values(by='points_sum', ascending=False)
 
 fig9 = px.bar(condf1, y='points_sum', x='constructors_name_')
-st.plotly_chart(fig9)
-  
-       
-       
-       
-       
-       
+
+with col2:
+       st.plotly_chart(fig9)
        
 #regplot voor een constructor
 
@@ -132,7 +134,7 @@ fig.update_layout(
        xaxis_title="Seizoen",
        yaxis_title="Aantal punten")
 
-with col1:
+with col2:
        st.plotly_chart(fig)
 
 #dropdown menu punten per seizoen per team
@@ -181,7 +183,7 @@ fig.update_layout(title='Regressie lijn van de punten per seizoen per team',
 
 fig.update_yaxes(type='linear')
 
-with col1:
+with col2:
        st.plotly_chart(fig)
 
 
