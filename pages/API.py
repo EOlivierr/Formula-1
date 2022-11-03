@@ -109,7 +109,7 @@ def render(results, championship, race_round, season):
     st.bokeh_chart(plot, use_container_width=True)
 
 
-async def main():
+async def API():
     st.set_page_config(
         page_title=PAGE_NAME,
     )
