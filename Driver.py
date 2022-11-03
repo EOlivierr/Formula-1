@@ -120,7 +120,7 @@ with col2:
        st.plotly_chart(fig4)
 
 #Nationality plot nieuw       
-fig12 = go.Figure(data=go.Bar(
+fig12 = go.Figure(data=go.Pie(
         x = driver_country3['nationality'],
         y = driver_country3['driver_counts']
         ))
