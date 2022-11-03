@@ -11,3 +11,4 @@ seaborn==0.11.2
 bokeh==2.4.3
 requests
 aiohttp
+image==1.5.33
