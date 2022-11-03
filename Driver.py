@@ -135,13 +135,14 @@ max_days = end_date-start_date
 with st.sidebar:
        slider = st.slider('Selecteer het jaargetal om de punten van de Coureurs te zien te zien!', min_value=start_date ,max_value=end_date)
 
-
 drivers = drivers[drivers['year']==slider]
 drivers = drivers.sort_values(by='points_sum')
 
+drivers = drivers.rename(columns ={'points_sum':'Totaal aant. punten', 'driver_name: Coureur'})
+
 #Punten van de driver plot
 with col2:
-       fig1 = st.bar_chart(drivers, y='points_sum', x=('driver_name'))
+       fig1 = st.bar_chart(drivers, y='Totaal aant. punten', x=('Coureur'))
 
        
 #Correlatie tussen p1 en pole
