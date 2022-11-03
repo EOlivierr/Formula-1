@@ -144,6 +144,7 @@ with col2:
        
 #regplot voor een constructor
 alle_teams= condf1['constructors_name_'].unique()
+condf2= con_analysis_df[['year_','constructors_name_', 'points_sum']]
 
 with st.sidebar:
        optie = st.selectbox(
