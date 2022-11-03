@@ -114,9 +114,7 @@ fig2 = go.Figure(data=go.Scattergeo(
 
 fig2.update_geos(projection_type="orthographic")
 
-fig2.update_layout(
-        title = 'Circuits of Formula 1 across the world (Hover for info)',
-        height=500,
+fig2.update_layout(height=500,
         width=700,
         margin={"r":0,"t":0,"l":0,"b":0}
     )
@@ -201,8 +199,7 @@ fig3.add_trace(go.Scatter(x=lap5.year, y=lap5.fastest_lap,
                     mode='lines',
                     name='Spa-Francorchamps'))
 
-fig3.update_layout(title='Snelste rondetijden per Circuit per paar',
-                   xaxis_title='Jaar',
+fig3.update_layout(xaxis_title='Jaar',
                    yaxis_title='Rondetijden',
                    template = "plotly_dark")
 with col2:
@@ -247,8 +244,7 @@ fig1.add_trace(go.Scatter(x=lap5.year, y=lap5.milliseconds,
                     mode='lines',
                     name='Spa-Francorchamps'))
 
-fig1.update_layout(title='Snelste pitstoptijden per Circuit per jaar',
-                   xaxis_title='Jaren',
+fig1.update_layout(xaxis_title='Jaren',
                    yaxis_title='Pitstoptijden',
                    template = "plotly_dark")
 with col2:
