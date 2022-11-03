@@ -7,6 +7,7 @@ import numpy as np
 import plotly.graph_objects as go
 import streamlit as st
 import plotly.figure_factory as ff
+import image
 PAGE_NAME = "Driver"
 st.set_page_config(layout="wide")
 
