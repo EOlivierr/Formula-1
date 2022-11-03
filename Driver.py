@@ -123,7 +123,7 @@ start_date = min(drivers['year'])
 end_date = max(drivers['year'])
 max_days = end_date-start_date
 
-with col2:
+with st.sidebar:
        slider = st.slider('Select date', min_value=start_date ,max_value=end_date)
 
 
