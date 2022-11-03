@@ -101,6 +101,7 @@ with st.sidebar:
 condf = condf[condf['year_']==slider7]
 
 with col2:
+       st.write("Punten per constructor per seizoen")
        fig1 = st.bar_chart(condf, y='points_sum', x='constructors_name_')
 
 
@@ -129,6 +130,7 @@ condf1 = condf1[(condf1.year_ >= slider9[0]) & (condf1.year_ <= slider9[1])]
 fig9 = px.bar(condf1, y='points_sum', x='constructors_name_')
 
 with col2:
+       st.write("Meest succesvolle contructor")
        st.plotly_chart(fig9)
        
 
@@ -167,6 +169,7 @@ fig.update_layout(xaxis_title="Seizoen",
        yaxis_title="Aantal punten")
 
 with col2:
+       st.write("Regressie lijn punten per constructor")
        st.plotly_chart(fig)
 
 #dropdown menu punten per seizoen per team
@@ -217,6 +220,7 @@ fig8.update_layout(xaxis_title='Seizoen',
 fig8.update_yaxes(type='linear')
 
 with col2:
+       st.write("Overzicht van punten per constructor")
        st.plotly_chart(fig8)
 
 
