@@ -10,8 +10,8 @@ import plotly.figure_factory as ff
 import requests
 
 url = "http://ergast.com/api/f1/driverStandings/1"
-
-
 response = requests.request("GET", url = url)
-print(response)
+json=response.json()
+API_data=pd.DataFrame(json)
+
 
