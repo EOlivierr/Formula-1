@@ -30,13 +30,6 @@ json=response.json()
 df=pd.DataFrame(json)
 df1=df.sample()
 
-hide_table_row_index = """
-            <style>
-            thead tr th:first-child {display:none}
-            tbody th {display:none}
-            </style>
-            """
-st.markdown(hide_table_row_index, unsafe_allow_html=True)
 
 
 
@@ -44,7 +37,7 @@ st.markdown(hide_table_row_index, unsafe_allow_html=True)
 with col4:
 	st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
 	#st.write(df1['author'], df1['quote'])
-	st.table(df)
+	
 	
 	
 	
