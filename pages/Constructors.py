@@ -86,7 +86,6 @@ con_analysis_df.columns = ['_'.join(col).strip() for col in con_analysis_df.colu
 
 
 #constructor punten per seizoen
-st.write("Aantal punten per seizoen")
 condf= con_analysis_df[['year_','constructors_name_', 'points_sum']]
 condf= condf.sort_values(by='points_sum', ascending=False)
 
