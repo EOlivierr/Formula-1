@@ -12,8 +12,8 @@ import requests
 PAGE_NAME = "Driver"
 st.set_page_config(layout="wide")
 
-with st.sidebar:
-	st.caption('Op deze pagina wordt gekeken naar de verschillende coureurs die op het moment racen in F1, of dat in het verleden hebben gedaan. Doormidden van de sliders kunnen verschillende seizoenen geselecteerd worden. ')
+#with st.sidebar:
+	#st.caption('Op deze pagina wordt gekeken naar de verschillende coureurs die op het moment racen in F1, of dat in het verleden hebben gedaan. Doormidden van de sliders kunnen verschillende seizoenen geselecteerd worden. ')
 
 col1, col2, col3, col4 = st.columns([1, 3, 1, 1])
 
