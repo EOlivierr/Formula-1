@@ -185,7 +185,7 @@ condf2 = condf2[(condf2.constructors_name_ == optie)
 #dropdown menu punten per seizoen per team
 
 
-fig = go.Figure()
+#fig = go.Figure()
 
 teller = 0
 buttonlist = [dict(label = "Kies een constructeur", method='update', args=[{"visible": [True*len(alle_teams)]}])]
