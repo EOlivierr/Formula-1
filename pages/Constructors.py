@@ -144,7 +144,7 @@ with col2:
        
 #regplot voor een constructor
 condf2= con_analysis_df[['year_','constructors_name_', 'points_sum']]
-#condf2 = condf2[condf2['year_']!= 2022]
+condf2 = condf2[condf2['year_']!= 2022]
 alle_teams= con_analysis_df['constructors_name_'].unique()
 
 with st.sidebar:
@@ -170,7 +170,7 @@ with st.sidebar:
 
 #with col2:
        #st.plotly_chart(fig)
-st.write('You selected:', option)     
+#st.write('You selected:', option)     
 #st.dataframe(condf2)
        
        
