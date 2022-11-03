@@ -13,7 +13,7 @@ PAGE_NAME = "Driver"
 st.set_page_config(layout="wide")
 
 st.title('Drivers')
-st.subheader('Op deze pagina wordt gekeken naar de verschillende coureurs die op het moment racen in F1, of dat in het verleden hebben gedaan ')
+st.caption('Op deze pagina wordt gekeken naar de verschillende coureurs die op het moment racen in F1, of dat in het verleden hebben gedaan ')
 
 col1, col2, col3, col4 = st.columns([1, 3, 1, 1])
 
