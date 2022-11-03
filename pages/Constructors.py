@@ -7,6 +7,7 @@ import numpy as np
 import plotly.graph_objects as go
 import streamlit as st
 import plotly.figure_factory as ff
+PAGE_NAME = "Constructors"
 st.set_page_config(layout="wide")
 
 col1, col2 = st.columns([3, 1])
