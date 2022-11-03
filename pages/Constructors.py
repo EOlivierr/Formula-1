@@ -166,7 +166,7 @@ with st.sidebar:
          ('Email', 'Home phone', 'Mobile phone'))
        
 with st.sidebar:       
-       st.write('You selected:', option)       
+       st.write(option)       
        
        
        
