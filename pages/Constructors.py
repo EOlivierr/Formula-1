@@ -159,6 +159,17 @@ fig.update_layout(xaxis_title="Seizoen",
 
 with col2:
        st.plotly_chart(fig)
+       
+with st.sidebar:
+       optie = st.selectbox(
+              'How would you like to be contacted?',
+         ('Email', 'Home phone', 'Mobile phone'))
+        st.write('You selected:', option)       
+       
+       
+       
+       
+       
 
 #dropdown menu punten per seizoen per team
 alle_teams= condf1['constructors_name_'].unique()
