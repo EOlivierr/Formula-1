@@ -172,56 +172,6 @@ with col2:
        st.write("Regressie lijn punten per constructor")
        st.plotly_chart(fig)
 
-#dropdown menu punten per seizoen per team
-
-condf3= con_analysis_df[['year_','constructors_name_', 'points_sum']]
-alle_teams2= condf3['constructors_name_'].unique()
-
-fig8 = go.Figure()
-
-teller = 0
-buttonlist = [dict(label = "Kies een constructeur", method='update', args=[{"visible": [True*len(alle_teams2)]}])]
-
-for i in alle_teams2:
-    df2= condf3[condf3['constructors_name_'] == i]
-    
-    fig8.add_trace(go.Scatter(x=df2["year_"], y=df2["points_sum"], mode='markers', 
-                             #trendline="ols", trendline_scope="overall", 
-                             #trendline_color_override="black", 
-                             name=str(i)))
-    
-    lijst = [False]*len(alle_teams2)
-    lijst[teller] = True
-    teller = teller + 1
-    
-    one_button = dict(label = str(i), method='update', args=[{"visible": lijst}])
-    buttonlist.append(one_button)
-    
-fig8.update_layout(
-updatemenus=[
-        dict(
-            buttons=buttonlist,
-            direction="down",
-            pad={"r": 10, "t": 10},
-            showactive=True,
-            x=1.1,
-            xanchor="left",
-            y=1.2,
-            yanchor="top"
-        ),        
-    ]
-)
-
-fig8.update_layout(xaxis_title='Seizoen',
-                   yaxis_title='Aantal punten',
-                  
-                 )
-
-fig8.update_yaxes(type='linear')
-
-with col2:
-       st.write("Overzicht van punten per constructor")
-       st.plotly_chart(fig8)
 
 
        
