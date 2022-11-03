@@ -13,4 +13,5 @@ url = "http://ergast.com/api/f1/driverStandings/1"
 
 
 response = requests.request("GET", url = url)
+print(response)
 
