@@ -219,25 +219,7 @@ fig8.update_yaxes(type='linear')
 with col2:
        st.plotly_chart(fig8)
 
-with col4:
-       import requests
 
-url = 'https://f1-drivers-quotes.p.rapidapi.com/quotes'
-
-headers = {
-	"X-RapidAPI-Key": "db7edfb24amshfb89605c2d68e9bp18a964jsn86117363852a",
-	"X-RapidAPI-Host": "f1-drivers-quotes.p.rapidapi.com"
-}
-
-response = requests.request("GET", url, headers=headers)
-
-json=response.json()
-df=pd.DataFrame(json)
-
-df1=df.sample()
-
-st.write(df1['author'],": ", df1['quote'])
-       
        
        
        
