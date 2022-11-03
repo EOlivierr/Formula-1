@@ -119,7 +119,7 @@ fig2.update_layout(height=500,
         margin={"r":0,"t":0,"l":0,"b":0}
     )
 with col2:
-       st.write("Top 20 meest voorkomende circuits")
+       st.write("Circuits op de kaart")
        st.plotly_chart(fig2)
 
 #top 20 meest voorkomende circuits
@@ -131,6 +131,7 @@ m =  m.rename(columns ={'circuit_name': 'count', 'index': 'circuit_name'})
 
 import plotly.express as px
 with col2:
+       st.write("Top 20 meest voorkomende circuits")
        fig = st.bar_chart(m, x='circuit_name', y='count')
 
 #fig.update_layout(title='Top 20 meest voorkomende circuits in Formule 1',
@@ -204,6 +205,7 @@ fig3.update_layout(xaxis_title='Jaar',
                    yaxis_title='Rondetijden',
                    template = "plotly_dark")
 with col2:
+       st.write("Snelste ronde")
        st.plotly_chart(fig3)
 
 #snelste pitlane
@@ -249,6 +251,7 @@ fig1.update_layout(xaxis_title='Jaren',
                    yaxis_title='Pitstoptijden',
                    template = "plotly_dark")
 with col2:
+       st.writes("Snelste pitstraat")
        st.plotly_chart(fig1)
 
 
