@@ -93,7 +93,7 @@ end_date5 = max(nat_df1['year'])
 max_days5 = end_date5-start_date5
 
 with st.sidebar:
-       slider5 = st.slider('Selecteer de datum', min_value=start_date5 ,max_value=end_date5)
+       slider5 = st.slider('Selecteer het jaargetal om de grafiek aan te passen!', min_value=start_date5 ,max_value=end_date5)
 
 
 nat_df1 = nat_df1[nat_df1['year']==slider5]
