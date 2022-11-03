@@ -170,7 +170,7 @@ with st.sidebar:
 
 #with col2:
        #st.plotly_chart(fig)
-st.write(option)     
+st.write(optie)     
 #st.dataframe(condf2)
        
        
