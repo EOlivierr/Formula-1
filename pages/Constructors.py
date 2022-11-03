@@ -171,6 +171,7 @@ with col2:
 
 #dropdown menu punten per seizoen per team
 
+condf3= con_analysis_df[['year_','constructors_name_', 'points_sum']]
 
 fig = go.Figure()
 
@@ -178,7 +179,7 @@ teller = 0
 buttonlist = [dict(label = "Kies een constructeur", method='update', args=[{"visible": [True*len(alle_teams)]}])]
 
 for i in alle_teams:
-    df2= condf1[condf1['constructors_name_'] == i]
+    df2= condf3[condf3['constructors_name_'] == i]
     
     fig8.add_trace(go.Scatter(x=df2["year_"], y=df2["points_sum"], mode='markers', 
                              #trendline="ols", trendline_scope="overall", 
