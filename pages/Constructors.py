@@ -96,7 +96,7 @@ end_date7 = max(condf['year_'])
 max_days7 = end_date7-start_date7
 
 with st.sidebar:
-       slider7 = st.slider('Select date', min_value=start_date7 ,max_value=end_date7)
+       slider7 = st.slider('Selecteer de datum om de punten van de teams te zien!', min_value=start_date7 ,max_value=end_date7)
        
 condf = condf[condf['year_']==slider7]
 with col2:
