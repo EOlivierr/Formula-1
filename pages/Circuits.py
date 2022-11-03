@@ -124,7 +124,7 @@ with col2:
        st.plotly_chart(fig2)
 
 #top 20 meest voorkomende circuits
-st.write("Top 20 meest voorkomende circuits")
+#st.write("Top 20 meest voorkomende circuits")
 most_circuits = fastestlapdf.groupby(['year','circuit_name']).count().reset_index()
 
 m = most_circuits['circuit_name'].value_counts().reset_index().head(20)
