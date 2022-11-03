@@ -31,6 +31,11 @@ df=pd.DataFrame(json)
 df1=df.sample()
 
 
+st.dataframe(df1.assign(hack='').set_index('hack'))
+
+style = df1.style.hide_index()st.write(styler.to_html(), unsafe_allow_html=True)
+
+
 
 
 
