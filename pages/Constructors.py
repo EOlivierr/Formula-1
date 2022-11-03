@@ -155,24 +155,23 @@ with st.sidebar:
 st.write(optie) 
 
 #condf2 = con_analysis_df[con_analysis_df.constructors_name_ == 'Ferrari']
-#condf2 = condf2[(condf2.constructors_name_ == optie)]
 condf2 = condf2[condf2['constructors_name_']==optie]
 condf2.sort_values(by='year_', ascending=True)
 
 
-#fig = px.scatter(x=condf2["year_"], 
-                 #y=condf2["points_sum"],
-                 #trendline="ols", 
-                 #trendline_scope="overall", 
-                 #trendline_color_override="black",)
+fig = px.scatter(x=condf2["year_"], 
+                 y=condf2["points_sum"],
+                 trendline="ols", 
+                 trendline_scope="overall", 
+                 trendline_color_override="black",)
 
-#fig.update_layout(xaxis_title="Seizoen",
-       #yaxis_title="Aantal punten")
+fig.update_layout(xaxis_title="Seizoen",
+       yaxis_title="Aantal punten")
 
-#with col2:
-       #st.plotly_chart(fig)
+with col2:
+       st.plotly_chart(fig)
     
-st.dataframe(condf2)
+#st.dataframe(condf2)
        
        
        
