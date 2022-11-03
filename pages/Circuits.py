@@ -10,7 +10,12 @@ import plotly.figure_factory as ff
 PAGE_NAME = "Circuits"
 st.set_page_config(layout="wide")
 
-col1, col2 = st.columns([3, 1])
+col1, col2, col3, col4 = st.columns([1, 3, 1, 1])
+
+image = Image.open('formula-1-logo-5-3.png')
+
+with col4:
+       st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
 
 circuits= pd.read_csv('circuits.csv')
 constructor_results= pd.read_csv('constructor_results.csv')
@@ -89,7 +94,7 @@ start_date = min(loc_df['year'])
 end_date = max(loc_df['year'])
 max_days = end_date-start_date
 
-with col2:
+with st.sidebar:
        slider = st.slider('Select date', min_value=start_date ,max_value=end_date)
 #value=(start_date,end_date)
 
@@ -114,7 +119,7 @@ fig2.update_layout(
         width=500,
         margin={"r":0,"t":0,"l":0,"b":0}
     )
-with col1:
+with col2:
        st.plotly_chart(fig2)
 
 #top 20 meest voorkomende circuits
@@ -125,7 +130,7 @@ m = most_circuits['circuit_name'].value_counts().reset_index().head(20)
 m =  m.rename(columns ={'circuit_name': 'count', 'index': 'circuit_name'})
 
 import plotly.express as px
-with col1:
+with col2:
        fig = st.bar_chart(m, x='circuit_name', y='count')
 
 #fig.update_layout(title='Top 20 meest voorkomende circuits in Formule 1',
@@ -199,7 +204,7 @@ fig3.update_layout(title='Snelste rondetijden per Circuit per paar',
                    xaxis_title='Jaar',
                    yaxis_title='Rondetijden',
                    template = "plotly_dark")
-with col1:
+with col2:
        st.plotly_chart(fig3)
 
 #snelste pitlane
@@ -245,7 +250,7 @@ fig1.update_layout(title='Snelste pitstoptijden per Circuit per jaar',
                    xaxis_title='Jaren',
                    yaxis_title='Pitstoptijden',
                    template = "plotly_dark")
-with col1:
+with col2:
        st.plotly_chart(fig1)
 
 
