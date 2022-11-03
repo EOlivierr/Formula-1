@@ -83,8 +83,16 @@ most_races = most_races.rename(columns ={'raceId': 'total_races'})
 con_analysis_df = merged_df.groupby(['year','constructors_name']).agg({'points': ['sum'],'raceId':['count'],'positionOrder':['mean','std'] }).reset_index()
 con_analysis_df.columns = ['_'.join(col).strip() for col in con_analysis_df.columns.values]
 
+
+
+
+
+
+
+
+
 #Driver plots
-#Nationality plot nieuw
+#Nationality plot oud
 nat_df= driver_analysis_df[['year','driver_name', 'points_sum']]
 nat_df1= nat_df.merge(driversdf, on='driver_name')
 
@@ -111,6 +119,26 @@ fig4 = go.Figure(data=[go.Pie(labels=labels2, values=values2, hole=.3, pull=[0, 
 with col2:
        st.plotly_chart(fig4)
 
+#Nationality plot nieuw       
+fig12 = go.Figure(data=go.Bar(
+        x = driver_country3['nationality'],
+        y = driver_country3['driver_counts']
+        ))
+
+fig12.update_layout(title='Verdeling van nationaliteit per seizoen',
+                    height=500,
+                     width=700)
+with col2:
+       st.plotly_chart(fig12)       
+       
+       
+       
+       
+       
+       
+       
+       
+       
 condf= con_analysis_df[['year_','constructors_name_', 'points_sum']]
 condf= condf.sort_values(by='points_sum', ascending=False)
 
