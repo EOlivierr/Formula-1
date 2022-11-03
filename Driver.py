@@ -138,11 +138,9 @@ with st.sidebar:
 drivers = drivers[drivers['year']==slider]
 drivers = drivers.sort_values(by='points_sum')
 
-drivers = drivers.rename(columns ={'points_sum':'Totaal aant. punten', 'driver_name: Coureur'})
-
 #Punten van de driver plot
 with col2:
-       fig1 = st.bar_chart(drivers, y='Totaal aant. punten', x=('Coureur'))
+       fig1 = st.bar_chart(drivers, y='points_sum', x=('driver_name'))
 
        
 #Correlatie tussen p1 en pole
