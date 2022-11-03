@@ -165,8 +165,8 @@ with st.sidebar:
               'How would you like to be contacted?',
          ('Email', 'Home phone', 'Mobile phone'))
        
-with st.sidebar:       
-       st.write(option)       
+    
+st.write(option)       
        
        
        
