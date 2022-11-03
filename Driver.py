@@ -16,8 +16,6 @@ col1, col2, col3, col4 = st.columns([1, 3, 1, 1])
 
 image = Image.open('formula-1-logo-5-3.png')
 
-
-
 url = 'https://f1-drivers-quotes.p.rapidapi.com/quotes'
 
 headers = {
@@ -30,26 +28,9 @@ json=response.json()
 df=pd.DataFrame(json)
 df1=df.sample()
 
-
-st.dataframe(df1.assign(hack='').set_index('hack'))
-
-style = df1.style.hide_index()
-
-
-
-
-
-
 with col4:
 	st.image(image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-	#st.write(df1['author'], df1['quote'])
-	st.write(styler.to_html(), unsafe_allow_html=True)
-	
-	
-	
-	
-	
-	
+	st.write(df1['author'], df1['quote'])	
 
 circuits= pd.read_csv('circuits.csv')
 constructor_results= pd.read_csv('constructor_results.csv')
