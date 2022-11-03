@@ -8,7 +8,6 @@ import plotly.graph_objects as go
 import streamlit as st
 import plotly.figure_factory as ff
 from PIL import Image
-PAGE_NAME = "Circuits"
 st.set_page_config(layout="wide")
 
 col1, col2, col3, col4 = st.columns([1, 3, 1, 1])
@@ -103,7 +102,7 @@ with st.sidebar:
 loc_df = loc_df[loc_df['year']== slider]
 
 loc_df['text']= loc_df['circuit_name'] + ', ' + 'Country: ' + loc_df['country'].astype(str)
-st.write("Circuits op de kaart")
+
 fig2 = go.Figure(data=go.Scattergeo(
         lon = loc_df['lng'],
         lat = loc_df['lat'],
@@ -120,6 +119,7 @@ fig2.update_layout(height=500,
         margin={"r":0,"t":0,"l":0,"b":0}
     )
 with col2:
+       st.write("Top 20 meest voorkomende circuits")
        st.plotly_chart(fig2)
 
 #top 20 meest voorkomende circuits
