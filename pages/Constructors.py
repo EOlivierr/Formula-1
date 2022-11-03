@@ -216,14 +216,14 @@ condf2 = condf2[(condf2.constructors_name_ == optie)]
             #xanchor="left",
             #y=1.2,
             #yanchor="top"
-        ),        
-    ]
-)
+        #),        
+    #]
+#)
 
 #fig.update_layout(xaxis_title='Seizoen',
                    #yaxis_title='Aantal punten',
                   
-                 )
+                 #)
 
 #fig.update_yaxes(type='linear')
 
