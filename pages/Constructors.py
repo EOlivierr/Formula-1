@@ -149,11 +149,11 @@ alle_teams= con_analysis_df['constructors_name_'].unique()
 
 with st.sidebar:
        optie = st.selectbox(
-              'How would you like to be contacted?',
+              'Selecteer een team',
          (alle_teams))
 
 #condf2 = con_analysis_df[con_analysis_df.constructors_name_ == 'Ferrari']
-condf2 = condf2[(condf2.constructors_name_ == optie)
+#condf2 = condf2[(condf2.constructors_name_ == optie)
 #condf2 = condf2.drop(1085)
 #condf2 = condf2[condf2['year_']!= 2022]
 #condf2.sort_values(by='year_', ascending=True)
