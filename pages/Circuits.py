@@ -251,7 +251,7 @@ fig1.update_layout(xaxis_title='Jaren',
                    yaxis_title='Pitstoptijden',
                    template = "plotly_dark")
 with col2:
-       st.writes("Snelste pitstraat")
+       st.write("Snelste pitstraat")
        st.plotly_chart(fig1)
 
 
