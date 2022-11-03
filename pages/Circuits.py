@@ -96,7 +96,7 @@ end_date = max(loc_df['year'])
 max_days = end_date-start_date
 
 with st.sidebar:
-       slider = st.slider('Select date', min_value=start_date ,max_value=end_date)
+       slider = st.slider('Select de datum om de Circuits opde kaart te zien!', min_value=start_date ,max_value=end_date)
 #value=(start_date,end_date)
 
 #loc_df = loc_df[(loc_df.year >= slider[0]) & (loc_df.year <= slider[1])]
