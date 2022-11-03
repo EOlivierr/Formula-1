@@ -138,7 +138,7 @@ with col2:
  
        
        
-       
+  
        
        
        
@@ -146,6 +146,11 @@ with col2:
        
 #regplot voor een constructor
 condf2= con_analysis_df[['year_','constructors_name_', 'points_sum']]
+
+u, i = condf2.unique(condf2.year_.values, return_inverse=True)     
+condf2= condf2[np.bincount(i)[i] > 1]
+
+
 condf2 = condf2[condf2['year_']!= 2022]
 alle_teams= con_analysis_df['constructors_name_'].unique()
 
