@@ -106,7 +106,7 @@ values2 = driver_country3['driver_counts']
 
 fig4 = go.Figure(data=[go.Pie(labels=labels2, values=values2, hole=.3, pull=[0, 0, 0, 0, 0, 0, 0.2], hoverinfo='label+value')])
 
-fig4.update_layout(title='Verdeling van nationaliteit per seizoen', template = "plotly_dark")
+#fig4.update_layout(title='Verdeling van nationaliteit per seizoen', template = "plotly_dark")
 
 with col2:
        st.plotly_chart(fig4)
@@ -177,8 +177,7 @@ updatemenus=[
     ]
 )
 
-fig.update_layout(title='Correlatie tussen Qualificatie positie en eindpositie',
-                   xaxis_title='Qualificatie positie',
+fig.update_layout(xaxis_title='Qualificatie positie',
                    yaxis_title='Eindpositie',
                    template = "plotly_dark")
 
