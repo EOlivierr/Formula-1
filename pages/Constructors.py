@@ -12,6 +12,9 @@ import requests
 PAGE_NAME = "Constructors"
 st.set_page_config(layout="wide")
 
+with st.sidebar:
+	st.caption('Op deze pagina wordt ingegaan op de verschillende teams die op het moment racen, of hebben geraced, in Formula 1. Met de sliders zijn verschillende seizoenen te selecteren en met de drop-box kunnen er verschillende teams geselecteerd worden.')
+
 col1, col2, col3, col4 = st.columns([1, 3, 1, 1])
 
 image = Image.open('formula-1-logo-5-3.png')
