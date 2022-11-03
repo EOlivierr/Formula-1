@@ -141,6 +141,8 @@ with col2:
        
        
 #regplot voor een constructor
+alle_teams= condf1['constructors_name_'].unique()
+
 
 condf2 = con_analysis_df[con_analysis_df.constructors_name_ == 'Ferrari']
 #condf2 = condf2.drop(1085)
@@ -163,7 +165,7 @@ with col2:
 with st.sidebar:
        optie = st.selectbox(
               'How would you like to be contacted?',
-         ('Email', 'Home phone', 'Mobile phone'))
+         (alle_teams))
        
        
        
@@ -173,7 +175,7 @@ with st.sidebar:
        
 
 #dropdown menu punten per seizoen per team
-alle_teams= condf1['constructors_name_'].unique()
+
 
 fig = go.Figure()
 
