@@ -16,7 +16,7 @@ st.markdown("[![Foo](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAACfCAMAA
 
 with col2:
        st.markdown("[![Foo](https://logodownload.org/wp-content/uploads/2016/11/formula-1-logo-5-3.png)]Klik voor link naar dataset")
-
+       st.image(https://logodownload.org/wp-content/uploads/2016/11/formula-1-logo-5-3.png, width=3)
 
 circuits= pd.read_csv('circuits.csv')
 constructor_results= pd.read_csv('constructor_results.csv')
