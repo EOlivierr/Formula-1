@@ -92,7 +92,7 @@ con_analysis_df.columns = ['_'.join(col).strip() for col in con_analysis_df.colu
 
 
 #Driver plots
-#Nationality plot oud
+#Nationality plot 
 nat_df= driver_analysis_df[['year','driver_name', 'points_sum']]
 nat_df1= nat_df.merge(driversdf, on='driver_name')
 
@@ -119,24 +119,7 @@ fig4 = go.Figure(data=[go.Pie(labels=labels2, values=values2, hole=.3, pull=[0, 
 with col2:
        st.plotly_chart(fig4)
 
-#Nationality plot nieuw       
-fig12 = go.Figure(data=go.pie(
-        x = driver_country3['nationality'],
-        y = driver_country3['driver_counts']
-        ))
 
-fig12.update_layout(title='Verdeling van nationaliteit per seizoen',
-                    height=500,
-                     width=700)
-with col2:
-       st.plotly_chart(fig12)       
-       
-       
-       
-       
-       
-       
-       
        
        
 condf= con_analysis_df[['year_','constructors_name_', 'points_sum']]
