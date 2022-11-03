@@ -170,7 +170,7 @@ with st.sidebar:
 
 #with col2:
        #st.plotly_chart(fig)
-#st.write('You selected:', option)     
+st.write(option)     
 #st.dataframe(condf2)
        
        
