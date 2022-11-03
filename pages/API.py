@@ -120,7 +120,7 @@ async def API():
         "Season", min_value=FIRST_F1_SEASON, max_value=CURRENT_F1_SEASON, step=1, value=CURRENT_F1_SEASON
     )
 
-    _, num_races = get_season_num_rounds(season)
+    #_, num_races = get_season_num_rounds(season)
 
     race_round = st.sidebar.slider(
         "Race Round",
