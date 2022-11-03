@@ -174,7 +174,7 @@ with col2:
 condf3= con_analysis_df[['year_','constructors_name_', 'points_sum']]
 alle_teams2= condf3['constructors_name_'].unique()
 
-fig = go.Figure()
+fig8 = go.Figure()
 
 teller = 0
 buttonlist = [dict(label = "Kies een constructeur", method='update', args=[{"visible": [True*len(alle_teams2)]}])]
@@ -194,7 +194,7 @@ for i in alle_teams2:
     one_button = dict(label = str(i), method='update', args=[{"visible": lijst}])
     buttonlist.append(one_button)
     
-fig.update_layout(
+fig8.update_layout(
 updatemenus=[
         dict(
             buttons=buttonlist,
@@ -209,14 +209,14 @@ updatemenus=[
     ]
 )
 
-fig.update_layout(xaxis_title='Seizoen',
+fig8.update_layout(xaxis_title='Seizoen',
                    yaxis_title='Aantal punten',
                   
                  )
 
-fig.update_yaxes(type='linear')
+fig8.update_yaxes(type='linear')
 
 with col2:
-       st.plotly_chart(fig)
+       st.plotly_chart(fig8)
 
 
