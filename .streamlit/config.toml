@@ -1,4 +1,10 @@
 [theme]
+#primaryColor="#000000"
+#backgroundColor="#FFFFFF"
+#secondaryBackgroundColor="#A7C7E7"
+#textColor="#000000"
+#font="sans serif"
+
 primaryColor="#000000"
 backgroundColor="#FFFFFF"
 secondaryBackgroundColor="#A7C7E7"
