@@ -150,7 +150,7 @@ condf2= con_analysis_df[['year_','constructors_name_', 'points_sum']]
 condf2 = condf2.loc[condf2.duplicated(subset='constructors_name_', keep=False), :]
 
 condf2 = condf2[condf2['year_']!= 2022]
-alle_teams= con_analysis_df['constructors_name_'].unique()
+alle_teams= condf2['constructors_name_'].unique()
 
 with st.sidebar:
        optie = st.selectbox(
