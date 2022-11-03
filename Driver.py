@@ -12,6 +12,8 @@ import requests
 PAGE_NAME = "Driver"
 st.set_page_config(layout="wide")
 
+st.title('Drivers')
+
 col1, col2, col3, col4 = st.columns([1, 3, 1, 1])
 
 image = Image.open('formula-1-logo-5-3.png')
